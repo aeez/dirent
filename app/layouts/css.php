@@ -1,6 +1,6 @@
-<link href="./app/assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-<link href="./app/assets/vendor/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
-<link href="./app/assets/css/dirent.css" rel="stylesheet">
+<link href="../app/assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+<link href="../app/assets/vendor/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
+<link href="../app/assets/css/dirent.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

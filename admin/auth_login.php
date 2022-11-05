@@ -1,8 +1,8 @@
 <?php
-include('./config/functions/functionAuth.php');
+include('../config/functions/functionAuth.php');
 
 if (isset($_SESSION['login']) && (isset($_SESSION['level']) == 'admin') || (isset($_SESSION['level']) == 'petugas')) {
-    header('location:dashboard.php');
+    header('location: dashboard.php');
 } else if (isset($_SESSION['login']) && (isset($_SESSION['level']) == 'siswa')) {
     header('location:home.php');
 }
@@ -63,7 +63,7 @@ if (isset($_POST['login'])) {
     <meta name="description" content="">
     <meta name="author" content="">
     <title>DIRENT</title>
-    <?php include('./app/layouts/css.php'); ?>
+    <?php include('../app/layouts/css.php'); ?>
 </head>
 
 <body id="page-top">
@@ -143,7 +143,7 @@ if (isset($_POST['login'])) {
         <i class="fas fa-angle-up"></i>
     </a>
     <!-- Js -->
-    <?php include('./app/layouts/js.php'); ?>
+    <?php include('../app/layouts/js.php'); ?>
 </body>
 
 </html>
