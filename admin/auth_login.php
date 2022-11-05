@@ -63,7 +63,6 @@ if (isset($_POST['login'])) {
     <meta name="description" content="">
     <meta name="author" content="">
     <title>DIRENT</title>
-    <link rel="stylesheet" href="../app/assets/">
     <link href="../app/assets/css/login.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -76,43 +75,50 @@ if (isset($_POST['login'])) {
 
     <!-- form -->
     <section class="container-fluid form-page">
-      <div
+        <div
         class="row justify-content-center align-items-center"
-        style="height: 100vh"
-      >
-        <div class="col-10 col-lg-4 p-3 form-wrapper">
-          <div class="form-logo text-center my-5">
-            <h1 class="fw-bold fst-italic">DIRENT</h1>
-          </div>
-          <div class="form-main">
-            <form action="" method="POST">
-            <div class="mb-3">
-              <input
-                type="text"
-                class="form-control"
-                id="username"
-                placeholder="username"
-                required
-              />
+        style="height: 100vh">
+            <div class="col-10 col-lg-4 p-3 form-wrapper">
+            <div class="form-logo text-center my-5">
+                <h1 class="fw-bold fst-italic"><i class="bi bi-x-lg"></i> DIRENT</h1>
+                <?php if (isset($error)) { ?>
+                    <div class="alert alert-danger alert-dismissible" role="alert">
+                        Gagal, mohon periksa lagi username dan password Anda!
+                    </div>
+                <?php } else if (isset($error4)) { ?>
+                    <div class="alert alert-danger alert-dismissible" role="alert">
+                        Gagal, Anda belum terdaftar!
+                    </div>
+                <?php }  ?>
             </div>
-            <div class="mb-4">
-              <input
-                type="password"
-                class="form-control"
-                id="password"
-                placeholder="password"
-                required
-              />
+            <div class="form-main">
+                <form action="" method="POST">
+                <div class="mb-3">
+                <input
+                    type="text"
+                    class="form-control"
+                    name="username"
+                    id="username"
+                    placeholder="username"
+                    required
+                />
+                </div>
+                <div class="mb-4">
+                <input
+                    type="password"
+                    class="form-control"
+                    name="password"
+                    id="password"
+                    placeholder="password"
+                    required
+                />
+                </div>
+                <div class="form-button mb-5">
+                <button type="submit" name="login">Sign In</button>
+                </div>
+                </form>
             </div>
-            <div class="form-button mb-5">
-              <button type="submit">Sign In</button>
             </div>
-            <!-- <div class="register-wrapper text-center mb-5">
-              <p>SELAMAT LOGIN</p>
-            </div> -->
-            </form>
-          </div>
-        </div>
       </div>
     </section>
     <!-- form -->
