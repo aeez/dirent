@@ -13,20 +13,20 @@ if (isset($_POST['login'])) {
     $password = $_POST['password'];
 
     $petugasInfo = mysqli_query($conn, "SELECT * FROM petugas WHERE username = '$username'");
-    $siswaInfo = mysqli_query($conn, "SELECT * FROM siswa WHERE username = '$username'");
+    // $siswaInfo = mysqli_query($conn, "SELECT * FROM siswa WHERE username = '$username'");
 
     if (mysqli_num_rows($petugasInfo) === 0) {
         $error4 = true;
-    } else if (mysqli_num_rows($siswaInfo) === 0) {
-        $error4 = true;
-    }
+    } //else if (mysqli_num_rows($siswaInfo) === 0) {
+        //$error4 = true;
+    //}
 
     if (mysqli_num_rows($petugasInfo) === 1) {
 
         $row = mysqli_fetch_assoc($petugasInfo);
 
         if (password_verify($password, $row['password'])) {
-            // sessin set
+            // session set
             $_SESSION['login'] = true;
             $_SESSION['nama'] = $row['nama_petugas'];
             $_SESSION['level'] = $row['level'];
@@ -35,21 +35,21 @@ if (isset($_POST['login'])) {
         }
 
         $error = true;
-    } else if (mysqli_num_rows($siswaInfo) === 1) {
+    } //else if (mysqli_num_rows($siswaInfo) === 1) {
 
-        $row = mysqli_fetch_assoc($siswaInfo);
+    //     $row = mysqli_fetch_assoc($siswaInfo);
 
-        if (password_verify($password, $row['password'])) {
-            // sessin set
-            $_SESSION['login'] = true;
-            $_SESSION['nama'] = $row['nama_siswa'];
-            $_SESSION['level'] = $row['level'];
-            header('location: home.php');
-            exit;
-        }
+    //     if (password_verify($password, $row['password'])) {
+    //         // sessin set
+    //         $_SESSION['login'] = true;
+    //         $_SESSION['nama'] = $row['nama_siswa'];
+    //         $_SESSION['level'] = $row['level'];
+    //         header('location: home.php');
+    //         exit;
+    //     }
 
-        $error = true;
-    }
+    //     $error = true;
+    // }
 }
 ?>
 
@@ -63,86 +63,67 @@ if (isset($_POST['login'])) {
     <meta name="description" content="">
     <meta name="author" content="">
     <title>DIRENT</title>
-    <?php include('../app/layouts/css.php'); ?>
+    <link href="../app/assets/css/login.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;1,300;1,600&family=Rubik:ital,wght@0,300;0,500;0,600;0,800;1,300;1,700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
 </head>
 
-<body id="page-top">
-    <div id="wrapper">
-        <div id="content-wrapper" class="d-flex flex-column">
-            <div id="content">
-                <!-- Container Fluid-->
-                <div class="container-login">
-                    <div class="row justify-content-center">
-                        <div class="col-xl-6 col-lg-12 col-md-9">
-                            <div class="card shadow-sm my-5">
-                                <div class="card-body p-0">
-                                    <div class="row">
-                                        <div class="col-lg-12">
-                                            <?php if (isset($error)) { ?>
-                                                <div class="alert alert-danger alert-dismissible" role="alert">
-                                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                                        <span aria-hidden="true">&times;</span>
-                                                    </button>
-                                                    Gagal, mohon periksa lagi username dan password Anda!
-                                                </div>
-                                            <?php } else if (isset($error4)) { ?>
-                                                <div class="alert alert-danger alert-dismissible" role="alert">
-                                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                                        <span aria-hidden="true">&times;</span>
-                                                    </button>
-                                                    Gagal, Anda belum terdaftar!
-                                                </div>
-                                            <?php }  ?>
-                                            <div class="login-form">
-                                                <div class="text-center">
-                                                    <h1 class="h4 text-gray-900 mb-4">Login Perpus Tech</h1>
-                                                </div>
-                                                <form class="user" action="" method="POST">
-                                                    <div class="form-group">
-                                                        <input type="text" class="form-control" id="username" name="username" placeholder="Masukan Username" autocomplete="off">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <input type="password" class="form-control" id="password" name="password" placeholder="Masukan Password">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <button type="submit" name="login" class="btn btn-primary btn-block">Login</button>
-                                                    </div>
-                                                </form>
-                                                <hr>
-                                                <div class="text-center">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+<body id="top">
+
+    <!-- form -->
+    <section class="container-fluid form-page">
+        <div class="row justify-content-center align-items-center" style="height: 100vh">
+            <div class="col-10 col-lg-4 p-3 form-wrapper">
+                <div class="form-logo text-center my-5">
+                    <h1 class="fw-bold fst-italic"><i class="bi bi-x-lg"></i> DIRENT</h1>
+                </div>
+                
+                <?php if (isset($error)) { ?>
+                    <div class="alert alert-danger alert-dismissible" role="alert">
+                        Gagal, mohon periksa lagi username dan password Anda!
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                <?php } else if (isset($error4)) { ?>
+                    <div class="alert alert-danger alert-dismissible" role="alert">
+                        Gagal, Anda belum terdaftar!
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                <?php }  ?>
+                <div class="form-main">
+                    <form action="" method="POST">
+                        <div class="mb-3">
+                            <input
+                                type="text"
+                                class="form-control"
+                                name="username"
+                                id="username"
+                                placeholder="Username"
+                                required
+                            />
                         </div>
-                    </div>
+                        <div class="mb-4">
+                            <input
+                                type="password"
+                                class="form-control"
+                                name="password"
+                                id="password"
+                                placeholder="Password"
+                                required
+                            />
+                        </div>
+                        <div class="form-button mb-5">
+                            <button type="submit" name="login">Log In</button>
+                        </div>
+                    </form>
                 </div>
-                <!---Container Fluid-->
             </div>
-
-            <footer>
-                <div class="container">
-                    <div class="copyright text-center my-auto">
-                        <span>copyright &copy; <script>
-                                document.write(new Date().getFullYear());
-                            </script> - developed by
-                            <b><a href="">Kelompok 18</a></b>
-                        </span>
-                    </div>
-                </div>
-            </footer>
         </div>
-    </div>
-
-
-
-    <!-- Scroll to top -->
-    <a class="scroll-to-top rounded" href="#page-top">
-        <i class="fas fa-angle-up"></i>
-    </a>
-    <!-- Js -->
+    </section>
+    <!-- form -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
     <?php include('../app/layouts/js.php'); ?>
 </body>
 
