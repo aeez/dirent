@@ -133,3 +133,13 @@ footer .footer .footer-bottom .wrapper-text {
 footer .footer .footer-bottom .wrapper-text p {
   color: #aaa !important;
 }
+
+@media only screen and (max-width: 900px) {
+  .navbar {
+    background-color: #f8f9fa;
+  }
+  .btn-login .btn {
+    background-color: #2d334a !important;
+    color: #f8f9fa !important;
+  }
+}

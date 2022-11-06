@@ -1,0 +1,72 @@
+// font
+// variabel
+$primary: #272343;
+$secondary: #ffd803;
+$font1: "Rubik", sans-serif;
+$font2: "Poppins", sans-serif;
+
+// catalog
+#catalog {
+  .catalog-header {
+    .section-title {
+      color: $secondary !important;
+      font-family: $font1;
+    }
+    .catalog-description {
+      font-family: $font2 !important;
+      color: $primary;
+    }
+  }
+  .catalog-card {
+    font-family: $font2;
+    .card-car {
+      transition: all 0.3s ease-in-out;
+      border-radius: 20px;
+    }
+    .card-car:hover {
+      background-color: #fff;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+      transform: scale(1.03);
+    }
+    .card-title {
+      p {
+        color: $secondary;
+      }
+    }
+    .card-features {
+      button {
+        background-color: $primary;
+        color: #fff;
+      }
+      p {
+        font-size: smaller;
+      }
+    }
+    .card-btn {
+      button {
+        background-color: $primary;
+        color: #fff;
+        transition: all 0.3s;
+      }
+      button:hover {
+        background-color: #ffd803;
+        color: $primary;
+      }
+    }
+  }
+}
+
+// responsive
+@media only screen and (max-width: 600px) {
+  .card-car {
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.01);
+    background-color: #fff;
+    border-radius: 20px;
+  }
+  .card-features {
+    p {
+      font-size: 10px !important;
+    }
+  }
+}

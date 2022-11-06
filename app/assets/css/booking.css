@@ -1,0 +1,39 @@
+#booking {
+  font-family: "Poppins", sans-serif;
+}
+
+#booking .booking-header .section-title {
+  color: #ffd803 !important;
+  font-family: "Rubik", sans-serif;
+}
+
+#booking .booking-card {
+  background-color: #272343;
+  border-radius: 20px;
+}
+
+#booking .booking-card .card-title {
+  color: #ffd803 !important;
+}
+
+#booking .booking-card form label {
+  color: #ffd803;
+}
+
+#booking .booking-card form .btn-kirim {
+  background-color: #fff;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+#booking .booking-card form .btn-kirim:hover {
+  background-color: #ffd803;
+}
+
+#booking .syarat-card {
+  color: #272343 !important;
+  background: rgba(170, 170, 170, 0.1);
+  border: 2px solid #2d334a;
+  border-radius: 20px;
+}
+/*# sourceMappingURL=booking.css.map */
