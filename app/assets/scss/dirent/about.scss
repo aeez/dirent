@@ -1,0 +1,218 @@
+@import "variable";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: $font2;
+  color: $primary !important;
+}
+
+.btn-login .btn {
+  background-color: $secondary;
+  border-radius: 50px;
+}
+
+.navbar-brand {
+  font-family: $font1;
+}
+
+// about page
+.about {
+  .title {
+    h1 {
+      font-family: $font1;
+      color: $secondary !important;
+    }
+  }
+
+  .about-main {
+    .left-page {
+      //   border: 1px solid salmon;
+
+      .background-image {
+        background: linear-gradient(rgba($color: $third, $alpha: 0.3), $white);
+        width: 50%;
+        border-radius: 30px;
+        margin: 40px;
+
+        img {
+          position: relative;
+          width: 27em;
+          right: 25px;
+          //   border: 1px solid;
+        }
+      }
+    }
+
+    .right-page {
+      //   border: 1px solid greenyellow;
+
+      .about-logo {
+        h1 {
+          font-family: $font1;
+        }
+      }
+
+      .about-caption {
+        span {
+          font-weight: bold;
+        }
+      }
+
+      .about-services {
+        background-color: rgba($color: $third, $alpha: 0.3);
+        border-radius: 30px;
+
+        .service-list {
+          width: 30%;
+
+          i {
+            font-size: 1.7em;
+          }
+        }
+      }
+    }
+  }
+}
+
+// footer
+footer {
+  // box-shadow: 0 0 20px rgba($color: $black, $alpha: 0.15);
+  .footer {
+    p,
+    a {
+      font-size: 14px;
+    }
+    .footer-top {
+      .story {
+        .logo {
+          font-weight: 800;
+          font-family: $font1;
+        }
+
+        .story-main {
+          color: $third !important;
+        }
+      }
+
+      .title {
+        font-weight: 800;
+      }
+
+      .sitemap {
+        .sitemap-link {
+          .link-item {
+            a {
+              color: $third !important;
+              text-decoration: none;
+              transition: 0.3s;
+            }
+
+            a:hover {
+              color: #2d334a !important;
+              text-decoration: none;
+            }
+          }
+        }
+      }
+
+      .contact {
+        .contact-list {
+          p {
+            color: $third !important;
+
+            i {
+              color: $secondary !important;
+            }
+          }
+        }
+      }
+
+      .location {
+        .location-main {
+          p {
+            color: $third !important;
+          }
+
+          span {
+            color: $secondary !important;
+          }
+        }
+      }
+    }
+
+    .footer-bottom {
+      .wrapper-text {
+        border: 1px solid $third;
+        border-radius: 5px;
+
+        p {
+          color: $third !important;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  // about page
+  .about {
+    .title {
+      h1 {
+        font-family: $font1;
+        color: $secondary !important;
+      }
+    }
+
+    .about-main {
+      .left-page {
+        .background-image {
+          background: linear-gradient(
+            rgba($color: $third, $alpha: 0.3),
+            $white
+          );
+          width: 80%;
+          border-radius: 30px;
+          margin: 42px;
+
+          img {
+            position: block;
+            width: 20em;
+          }
+        }
+      }
+
+      .right-page {
+        .about-logo {
+          h1 {
+            font-family: $font1;
+          }
+        }
+
+        .about-caption {
+          span {
+            font-weight: bold;
+          }
+        }
+
+        .about-services {
+          background-color: rgba($color: $third, $alpha: 0.3);
+          border-radius: 30px;
+
+          .service-list {
+            width: 30%;
+
+            p {
+              font-size: 12px;
+            }
+
+            i {
+              font-size: 1.7em;
+            }
+          }
+        }
+      }
+    }
+  }
+}

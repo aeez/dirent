@@ -1,5 +1,5 @@
 <?php
-include('./config/conn.php');
+include('../config/conn.php');
 
 if (!isset($_SESSION['login'])) {
     header('location:auth_login.php');

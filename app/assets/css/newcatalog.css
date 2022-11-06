@@ -1,0 +1,64 @@
+#catalog .catalog-header .section-title {
+  color: #ffd803 !important;
+  font-family: "Rubik", sans-serif;
+}
+
+#catalog .catalog-header .catalog-description {
+  font-family: "Poppins", sans-serif !important;
+  color: #272343;
+}
+
+#catalog .catalog-card {
+  font-family: "Poppins", sans-serif;
+}
+
+#catalog .catalog-card .card-car {
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  border-radius: 20px;
+}
+
+#catalog .catalog-card .card-car:hover {
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  -webkit-transform: scale(1.03);
+  transform: scale(1.03);
+}
+
+#catalog .catalog-card .card-title p {
+  color: #ffd803;
+}
+
+#catalog .catalog-card .card-features button {
+  background-color: #272343;
+  color: #fff;
+}
+
+#catalog .catalog-card .card-features p {
+  font-size: smaller;
+}
+
+#catalog .catalog-card .card-btn button {
+  background-color: #272343;
+  color: #fff;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+#catalog .catalog-card .card-btn button:hover {
+  background-color: #ffd803;
+  color: #272343;
+}
+
+@media only screen and (max-width: 600px) {
+  .card-car {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    background-color: #fff;
+    border-radius: 20px;
+  }
+  .card-features p {
+    font-size: 10px !important;
+  }
+}
+/*# sourceMappingURL=catalog.css.map */

@@ -1,0 +1,190 @@
+main {
+  font-family: "Poppins", sans-serif;
+  color: #272343 !important;
+}
+
+.home-page {
+  background: linear-gradient(30deg, #fff, #fff, #aaa);
+  overflow: hidden;
+}
+.home-page .wrapper-home-page .row {
+  height: 100vh;
+}
+.home-page .wrapper-home-page .row .caption h1 {
+  color: #272343;
+  font-family: "Rubik", sans-serif;
+}
+.home-page .wrapper-home-page .row .caption h1 span {
+  color: #ffd803 !important;
+  font-family: "Rubik", sans-serif;
+}
+.home-page .wrapper-home-page .row .image img {
+  top: 50px;
+  left: 150px;
+  position: relative;
+}
+
+.services {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+.services .container .title h1 {
+  font-family: "Rubik", sans-serif;
+}
+.services .container .row .card {
+  border-radius: 20px;
+  transition: 0.5s;
+}
+.services .container .row .card:hover {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  transform: scale(1.02);
+}
+
+.brand {
+  background: linear-gradient(rgba(0, 0, 0, 0.15), rgba(255, 216, 3, 0.2));
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
+}
+.brand .row {
+  padding: 30px 0;
+}
+.brand .row .logo-left .logo {
+  width: 20%;
+}
+.brand .row .logo-right .logo {
+  width: 20%;
+}
+
+.question {
+  margin: 100px 0;
+}
+.question .container .title h1 {
+  font-family: "Rubik", sans-serif;
+}
+
+.review {
+  padding-bottom: 100px;
+}
+.review .container .title h1 {
+  font-family: "Rubik", sans-serif;
+}
+.review .container .give-review {
+  background: #f4f4f4;
+  border-radius: 10px;
+  box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.15);
+}
+.review .container .give-review .btn {
+  color: #fff !important;
+  background-color: #272343;
+}
+.review .container .card-swipper .swiper {
+  width: 100%;
+  height: 100%;
+  padding: 15px 10px;
+}
+.review .container .card-swipper .swiper .swiper-button-next::after,
+.review .container .card-swipper .swiper .swiper-button-prev::after {
+  content: "";
+}
+.review .container .card-swipper .swiper .swiper-button-next,
+.review .container .card-swipper .swiper .swiper-button-prev {
+  font-size: 2rem;
+  width: initial;
+  height: initial;
+  top: initial;
+  bottom: 1rem;
+}
+.review .container .card-swipper .swiper .swiper-button-next i,
+.review .container .card-swipper .swiper .swiper-button-prev i {
+  background-color: #272343;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s;
+}
+.review .container .card-swipper .swiper .swiper-button-next i:hover,
+.review .container .card-swipper .swiper .swiper-button-prev i:hover {
+  background-color: rgba(39, 35, 67, 0.95);
+}
+.review .container .card-swipper .swiper .swiper-button-next i::before,
+.review .container .card-swipper .swiper .swiper-button-prev i::before {
+  color: #ffd803;
+}
+.review .container .card-swipper .swiper .swiper-button-next {
+  right: calc(50% - 7rem);
+}
+.review .container .card-swipper .swiper .swiper-button-prev {
+  left: calc(50% - 7rem);
+}
+.review .container .card-swipper .swiper .swiper-wrapper {
+  margin-bottom: 100px;
+}
+.review .container .card-swipper .swiper .swiper-wrapper .swiper-slide {
+  font-size: 18px;
+  background: #fff;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+.review
+  .container
+  .card-swipper
+  .swiper
+  .swiper-wrapper
+  .swiper-slide
+  .swiper-content
+  .swiper-title {
+  color: #aaa !important;
+  font-size: 0.8em;
+  font-weight: lighter;
+}
+
+@media screen and (max-width: 992px) {
+  .home-page {
+    background: linear-gradient(#fff, #fff, #fff);
+  }
+  .home-page .wrapper-home-page .row .image img {
+    left: 0;
+    position: relative;
+  }
+  .services {
+    padding-top: 0px;
+    padding-bottom: 50px;
+  }
+  .services .container .row .card {
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  }
+  .brand .row .logo-left .logo {
+    width: 25%;
+  }
+  .brand .row .logo-right .logo {
+    width: 25%;
+  }
+  .question {
+    margin-top: 80px;
+    margin-bottom: 80px;
+  }
+  .review .container .give-review {
+    background: #f4f4f4;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+  }
+  .review .container .card-swipper .swiper {
+    width: 85%;
+  }
+}

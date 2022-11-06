@@ -1,8 +1,8 @@
 <?php
 include('./config/conn.php');
-if (!isset($_SESSION['login'])) {
-    header('location:auth_login.php');
-}
+// if (!isset($_SESSION['login'])) {
+//     header('location:auth_login.php');
+// }
 
 ?>
 <!DOCTYPE html>
@@ -39,8 +39,8 @@ if (!isset($_SESSION['login'])) {
                     <a class="nav-link" href="lihat_buku.php" style="font-size: 1.5rem;">Cari Buku</a>
                 </li>
             </ul>
-            <?php if (isset($_SESSION['login'])) : ?>
-                <div class="dropdown">
+            <?php //if (isset($_SESSION['login'])) : ?>
+                <!-- <div class="dropdown">
                     <button class="btn btn-sm btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <img class="./app/assets/img-profile rounded-circle" src="./app/assets/img/boy.png" style="max-width: 35px">
                         <span class="ml-2 d-none d-lg-inline text-white large">Hi, <?= $_SESSION['nama']; ?></span>
@@ -48,8 +48,8 @@ if (!isset($_SESSION['login'])) {
                     <div class="dropdown-menu hover" aria-labelledby="dropdownMenuButton">
                         <a class="dropdown-item" href="auth_logout.php" onclick="return confirm('Yakin ingin logout!')"><i class="fas fa-sign-out-alt mx-2 text-dark"></i>Logout</a>
                     </div>
-                </div>
-            <?php endif; ?>
+                </div> -->
+            <?php //endif; ?>
         </div>
     </nav>
 

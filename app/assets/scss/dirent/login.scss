@@ -1,0 +1,156 @@
+@import "variable";
+
+* {
+  font-family: $font2;
+  color: $primary !important;
+}
+
+.btn-login .btn {
+  background-color: $secondary;
+  border-radius: 50px;
+}
+
+.navbar-brand {
+  font-family: $font1;
+}
+
+// animasi
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+// form page
+.form-page {
+  .row {
+    background: linear-gradient(
+      -45deg,
+      #b5c6e0,
+      #ebf4f5,
+      #ffeda0,
+      #ebf4f5,
+      #a9c3ea,
+      #9fb8bb
+    );
+    background-size: 800% 800%;
+    animation: gradient 20s infinite alternate;
+    height: 100vh;
+    // animation: background 5s linear infinite;
+    .form-wrapper {
+      background-color: rgba($color: $white, $alpha: 0.4);
+      border-radius: 15px;
+      border-left: 1px solid $white;
+      border-bottom: 1px solid $white;
+      .form-logo {
+        h1 {
+          font-family: $font1;
+        }
+      }
+
+      .form-main {
+        .form-button {
+          button {
+            width: 100%;
+            background-color: $primary;
+            color: $white !important;
+            border-radius: 5px;
+            padding: 5px 0;
+          }
+        }
+
+        .register-wrapper {
+          a {
+            font-weight: bold;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+// footer
+footer {
+  .footer {
+    p,
+    a {
+      font-size: 14px;
+    }
+    .footer-top {
+      border: 1px solid greenyellow;
+      .story {
+        .logo {
+          font-weight: 800;
+          font-family: $font1;
+        }
+
+        .story-main {
+          color: $third !important;
+        }
+      }
+
+      .title {
+        font-weight: 800;
+      }
+
+      .sitemap {
+        .sitemap-link {
+          .link-item {
+            a {
+              color: $third !important;
+              text-decoration: none;
+              transition: 0.3s;
+            }
+
+            a:hover {
+              color: #2d334a !important;
+              text-decoration: none;
+            }
+          }
+        }
+      }
+
+      .contact {
+        .contact-list {
+          p {
+            color: $third !important;
+
+            i {
+              color: $secondary !important;
+            }
+          }
+        }
+      }
+
+      .location {
+        .location-main {
+          p {
+            color: $third !important;
+          }
+
+          span {
+            color: $secondary !important;
+          }
+        }
+      }
+    }
+
+    .footer-bottom {
+      .wrapper-text {
+        border: 1px solid $third;
+        border-radius: 5px;
+
+        p {
+          color: $third !important;
+        }
+      }
+    }
+  }
+}

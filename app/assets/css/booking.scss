@@ -1,0 +1,41 @@
+// font
+// variabel
+$primary: #272343;
+$secondary: #ffd803;
+$font1: "Rubik", sans-serif;
+$font2: "Poppins", sans-serif;
+
+#booking {
+  font-family: $font2;
+  .booking-header {
+    .section-title {
+      color: $secondary !important;
+      font-family: $font1;
+    }
+  }
+  .booking-card {
+    background-color: $primary;
+    border-radius: 20px;
+    .card-title {
+      color: $secondary !important;
+    }
+    form {
+      label {
+        color: $secondary;
+      }
+      .btn-kirim {
+        background-color: #fff;
+        transition: all 0.3s;
+      }
+      .btn-kirim:hover {
+        background-color: $secondary;
+      }
+    }
+  }
+  .syarat-card {
+    color: $primary !important;
+    background: rgba(170, 170, 170, 0.1);
+    border: 2px solid #2d334a;
+    border-radius: 20px;
+  }
+}
