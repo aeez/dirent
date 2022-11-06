@@ -1,5 +1,5 @@
 <?php
-include('./config/functions/functionPetugas.php');
+include('../config/functions/functionPetugas.php');
 
 $id = $_GET['id_petugas'];
 

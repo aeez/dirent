@@ -1,5 +1,5 @@
 <?php
-include('./config/functions/functionPetugas.php');
+include('../config/functions/functionPetugas.php');
 $petugas = query("SELECT * FROM petugas");
 $awalData = 0;
 $jumlahDataPerhalaman = 5;
@@ -29,22 +29,21 @@ if (isset($_GET['cari'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link href="./app/assets/img/logo/Logo_smk_tritech.png" rel="icon">
-    <title>Perpus Tech</title>
-    <?php include('./app/layouts/css.php'); ?>
+    <title>DIRENT</title>
+    <?php include('../app/layouts/css.php'); ?>
 </head>
 
 <body id="page-top">
     <div id="wrapper">
         <!-- Sidebar -->
-        <?php include('./app/layouts/sidebar.php'); ?>
+        <?php include('../app/layouts/sidebar.php'); ?>
         <!-- Sidebar -->
 
         <div id="content-wrapper" class="d-flex flex-column">
             <div id="content">
 
                 <!-- TopBar -->
-                <?php include('./app/layouts/topbar.php'); ?>
+                <?php include('../app/layouts/topbar.php'); ?>
                 <!-- Topbar -->
 
                 <!-- Container Fluid-->
@@ -149,14 +148,14 @@ if (isset($_GET['cari'])) {
                     </div>
 
                     <!-- Modal Logout -->
-                    <?php include('./app/layouts/modalLogout.php'); ?>
+                    <?php include('../app/layouts/modalLogout.php'); ?>
 
                 </div>
                 <!---Container Fluid-->
             </div>
 
             <!-- Footer -->
-            <?php include('./app/layouts/footer.php'); ?>
+            <?php include('../app/layouts/footer.php'); ?>
             <!-- Footer -->
         </div>
     </div>
@@ -166,7 +165,7 @@ if (isset($_GET['cari'])) {
         <i class="fas fa-angle-up"></i>
     </a>
     <!-- Js -->
-    <?php include('./app/layouts/js.php'); ?>
+    <?php include('../app/layouts/js.php'); ?>
 </body>
 
 </html>
