@@ -1,0 +1,58 @@
+/* font-family: 'Poppins', sans-serif;
+font-family: 'Rubik', sans-serif; */
+#register {
+  background: linear-gradient(
+    -45deg,
+    #b5c6e0,
+    #ebf4f5,
+    #ffeda0,
+    #ebf4f5,
+    #a9c3ea,
+    #9fb8bb
+  );
+  background-size: 800% 800%;
+  animation: gradient 20s ease-in-out infinite alternate;
+  font-family: "Poppins", sans-serif;
+  color: #2d334a;
+}
+
+.section-title {
+  h1 {
+    font-family: "Rubik", sans-serif !important;
+  }
+}
+
+.switchlogin {
+  p {
+    a {
+      text-decoration: none;
+      color: #2d334a;
+      font-weight: bold;
+    }
+  }
+  .btn {
+    background-color: #2d334a;
+    color: #fff;
+  }
+}
+
+.form-wrapper {
+  background: rgba(255, 255, 255, 0.4);
+  border-width: 0px 0px 1px 1px;
+  border-style: solid;
+  border-color: #ffffff;
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
