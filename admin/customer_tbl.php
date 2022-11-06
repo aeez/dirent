@@ -1,5 +1,5 @@
 <?php
-include('./config/functions/functionSiswa.php');
+include('../config/functions/functionSiswa.php');
 $siswa = query("SELECT * FROM siswa");
 $awalData = 0;
 $jumlahDataPerhalaman = 5;
@@ -29,22 +29,21 @@ if (isset($_GET['cari'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link href="./app/assets/img/logo/Logo_smk_tritech.png" rel="icon">
-    <title>Perpus Tech</title>
-    <?php include('./app/layouts/css.php'); ?>
+    <title>DIRENT</title>
+    <?php include('../app/layouts/css.php'); ?>
 </head>
 
 <body id="page-top">
     <div id="wrapper">
         <!-- Sidebar -->
-        <?php include('./app/layouts/sidebar.php'); ?>
+        <?php include('../app/layouts/sidebar.php'); ?>
         <!-- Sidebar -->
 
         <div id="content-wrapper" class="d-flex flex-column">
             <div id="content">
 
                 <!-- TopBar -->
-                <?php include('./app/layouts/topbar.php'); ?>
+                <?php include('../app/layouts/topbar.php'); ?>
                 <!-- Topbar -->
 
                 <!-- Container Fluid-->
@@ -60,7 +59,7 @@ if (isset($_GET['cari'])) {
                             <!-- Simple Tables -->
                             <div class="card">
                                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <a href="./siswa_tambah.php" class="btn btn-sm btn-primary">Tambah Customer</a>
+                                    <a href="./customer_tambah.php" class="btn btn-sm btn-primary">Tambah Customer</a>
                                     <form action="" method="GET">
                                         <div class="input-group">
                                             <input type="text" class="form-control form-control-sm" placeholder="Cari" name="keyword">
@@ -88,7 +87,7 @@ if (isset($_GET['cari'])) {
                                                     <td><?= $no++; ?></td>
                                                     <td><?= $dataSiswa['nis']; ?></td>
                                                     <td><?= $dataSiswa['nama_siswa']; ?></td>
-                                                    <td><a href="siswa_detail.php?id_siswa=<?= $dataSiswa['id_siswa']; ?>" class="btn btn-sm btn-info">Detail</a></td>
+                                                    <td><a href="customer_detail.php?id_siswa=<?= $dataSiswa['id_siswa']; ?>" class="btn btn-sm btn-info">Detail</a></td>
                                                 </tr>
                                             <?php endforeach; ?>
                                         </tbody>
@@ -144,14 +143,14 @@ if (isset($_GET['cari'])) {
                     </div>
 
                     <!-- Modal Logout -->
-                    <?php include('./app/layouts/modalLogout.php'); ?>
+                    <?php include('../app/layouts/modalLogout.php'); ?>
 
                 </div>
                 <!---Container Fluid-->
             </div>
 
             <!-- Footer -->
-            <?php include('./app/layouts/footer.php'); ?>
+            <?php include('../app/layouts/footer.php'); ?>
             <!-- Footer -->
         </div>
     </div>
@@ -161,7 +160,7 @@ if (isset($_GET['cari'])) {
         <i class="fas fa-angle-up"></i>
     </a>
     <!-- Js -->
-    <?php include('./app/layouts/js.php'); ?>
+    <?php include('../app/layouts/js.php'); ?>
 </body>
 
 </html>

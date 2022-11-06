@@ -25,7 +25,7 @@
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Manajemen User</h6>
                     <a class="collapse-item" href="./petugas_tbl.php">Manajemen Petugas</a>
-                    <a class="collapse-item" href="./siswa_tbl.php">Manajemen Customer</a>
+                    <a class="collapse-item" href="./customer_tbl.php">Manajemen Customer</a>
                 </div>
             </div>
         </li>

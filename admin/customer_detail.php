@@ -1,5 +1,5 @@
 <?php
-include('./config/functions/functionSiswa.php');
+include('../config/functions/functionSiswa.php');
 
 $id = $_GET['id_siswa'];
 
@@ -15,22 +15,21 @@ $detailSiswa = detail($id);
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link href="./app/assets/img/logo/Logo_smk_tritech.png" rel="icon">
-    <title>Perpus Tech</title>
-    <?php include('./app/layouts/css.php'); ?>
+    <title>DIRENT</title>
+    <?php include('../app/layouts/css.php'); ?>
 </head>
 
 <body id="page-top">
     <div id="wrapper">
         <!-- Sidebar -->
-        <?php include('./app/layouts/sidebar.php'); ?>
+        <?php include('../app/layouts/sidebar.php'); ?>
         <!-- Sidebar -->
 
         <div id="content-wrapper" class="d-flex flex-column">
             <div id="content">
 
                 <!-- TopBar -->
-                <?php include('./app/layouts/topbar.php'); ?>
+                <?php include('../app/layouts/topbar.php'); ?>
                 <!-- Topbar -->
 
                 <!-- Container Fluid-->
@@ -77,7 +76,7 @@ $detailSiswa = detail($id);
                                                 <td>: <?= $detailSiswa['password']; ?></td>
                                             </tr>
                                             <tr>
-                                                <td colspan="2" class="text-right"><a href="siswa_ubah.php?id_siswa=<?= $detailSiswa['id_siswa']; ?>" class="btn btn-warning">Ubah</a> <a href="siswa_hapus.php?id_siswa=<?= $detailSiswa['id_siswa']; ?>" class="btn btn-danger" onclick="return confirm('Yakin!')">Hapus</a></td>
+                                                <td colspan="2" class="text-right"><a href="customer_ubah.php?id_siswa=<?= $detailSiswa['id_siswa']; ?>" class="btn btn-warning">Ubah</a> <a href="customer_hapus.php?id_siswa=<?= $detailSiswa['id_siswa']; ?>" class="btn btn-danger" onclick="return confirm('Yakin!')">Hapus</a></td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -88,14 +87,14 @@ $detailSiswa = detail($id);
                     </div>
 
                     <!-- Modal Logout -->
-                    <?php include('./app/layouts/modalLogout.php'); ?>
+                    <?php include('../app/layouts/modalLogout.php'); ?>
 
                 </div>
                 <!---Container Fluid-->
             </div>
 
             <!-- Footer -->
-            <?php include('./app/layouts/footer.php'); ?>
+            <?php include('../app/layouts/footer.php'); ?>
             <!-- Footer -->
         </div>
     </div>
@@ -105,7 +104,7 @@ $detailSiswa = detail($id);
         <i class="fas fa-angle-up"></i>
     </a>
     <!-- Js -->
-    <?php include('./app/layouts/js.php'); ?>
+    <?php include('../app/layouts/js.php'); ?>
 </body>
 
 </html>

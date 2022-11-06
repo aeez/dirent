@@ -1,5 +1,5 @@
 <?php
-include('./config/functions/functionSiswa.php');
+include('../config/functions/functionSiswa.php');
 
 $id = $_GET['id_siswa'];
 
