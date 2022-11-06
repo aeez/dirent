@@ -1,7 +1,7 @@
-    <!-- footer start -->
+<!-- footer -->
     <footer>
       <div class="container footer">
-        <div class="row footer-top justify-content-center">
+        <div class="row footer-top justify-content-center pt-3">
           <div class="col-10 col-lg-3 story">
             <p class="logo fst-italic fs-2 mb-1">DIRENT</p>
             <p class="story-main">
@@ -51,12 +51,11 @@
             </div>
           </div>
         </div>
-        <div class="row footer-bottom justify-content-center">
+        <div class="row footer-bottom justify-content-center pb-3">
           <div class="col-10 wrapper-text">
             <p class="text-center mt-3">© 2022 DIRENT All Rights Reserved.</p>
           </div>
         </div>
       </div>
     </footer>
-    -->
-    <!-- footer end -->
+    <!-- footer -->

@@ -1,0 +1,135 @@
+.btn-login .btn {
+  background-color: #ffd803;
+  border-radius: 50px;
+  transition: all 1s;
+}
+
+.navbar {
+  font-family: "Rubik", sans-serif !important;
+  transition: all 1s;
+}
+
+.navbar .nav-link {
+  font-family: "Poppins", sans-serif !important;
+  font-weight: 600;
+}
+.navbar.sticky {
+  background-color: #f8f9fa !important;
+  box-shadow: none;
+}
+
+/* .navbar.sticky .nav-link {
+  color: #f8f9fa !important;
+} */
+
+.navbar.sticky .btn-login .btn {
+  background-color: #2d334a !important;
+  color: #f8f9fa !important;
+}
+.navbar-brand {
+  font-weight: 900 !important;
+}
+
+/* scroll up btn */
+
+.scroll-up-btn {
+  position: fixed;
+  height: 45px;
+  width: 42px;
+  right: 30px;
+  bottom: 10px;
+  text-align: center;
+  line-height: 45px;
+  color: #2d334a;
+  z-index: 9999;
+  font-size: 30px;
+  border-radius: 6px;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+.scroll-up-btn.show {
+  bottom: 30px;
+  opacity: 1;
+  pointer-events: auto;
+}
+.scroll-up-btn:hover {
+  filter: brightness(90%);
+}
+
+/* scroll up btn */
+
+.scroll-up-btn {
+  position: fixed;
+  height: 45px;
+  width: 42px;
+  right: 30px;
+  bottom: 10px;
+  text-align: center;
+  line-height: 45px;
+  color: #2d334a;
+  z-index: 9999;
+  font-size: 30px;
+  border-radius: 6px;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+.scroll-up-btn.show {
+  bottom: 30px;
+  opacity: 1;
+  pointer-events: auto;
+}
+.scroll-up-btn:hover {
+  filter: brightness(90%);
+}
+
+/* footer */
+footer {
+  font-family: "Poppins", sans-serif !important;
+}
+
+footer .footer p,
+footer .footer a {
+  font-size: 14px;
+}
+footer .footer .footer-top .story .logo {
+  font-weight: 800;
+  font-family: "Rubik", sans-serif;
+}
+footer .footer .footer-top .story .story-main {
+  color: #aaa !important;
+}
+footer .footer .footer-top .title {
+  font-weight: 800;
+}
+footer .footer .footer-top .sitemap .sitemap-link .link-item a {
+  color: #aaa !important;
+  text-decoration: none;
+  transition: 0.3s;
+}
+footer .footer .footer-top .sitemap .sitemap-link .link-item a:hover {
+  color: #2d334a !important;
+  text-decoration: none;
+}
+footer .footer .footer-top .contact .contact-list p {
+  color: #aaa !important;
+}
+footer .footer .footer-top .contact .contact-list p i {
+  color: #ffd803 !important;
+}
+footer .footer .footer-top .location .location-main p {
+  color: #aaa !important;
+}
+footer .footer .footer-top .location .location-main span {
+  color: #ffd803 !important;
+}
+footer .footer .footer-bottom .wrapper-text {
+  border: 1px solid #aaa;
+  border-radius: 5px;
+}
+footer .footer .footer-bottom .wrapper-text p {
+  color: #aaa !important;
+}

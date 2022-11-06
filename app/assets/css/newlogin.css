@@ -35,6 +35,11 @@
   border-left: 1px solid #fff;
   border-bottom: 1px solid #fff;
 }
+
+.form-page .row .form-wrapper a {
+  color: #272343;
+}
+
 .form-page .row .form-wrapper .form-logo h1 {
   font-family: "Rubik", sans-serif;
 }

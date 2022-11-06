@@ -1,0 +1,83 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* font-family: "Poppins", sans-serif; */
+  color: #272343 !important;
+}
+
+main {
+  font-family: "Poppins", sans-serif;
+}
+
+.about .title h1 {
+  font-family: "Rubik", sans-serif;
+  color: #ffd803 !important;
+}
+.about .about-main .left-page .background-image {
+  background: linear-gradient(rgba(170, 170, 170, 0.3), #fff);
+  width: 50%;
+  border-radius: 30px;
+  margin: 40px;
+}
+.about .about-main .left-page .background-image img {
+  position: relative;
+  width: 27em;
+  right: 25px;
+}
+.about .about-main .right-page .about-logo h1 {
+  font-family: "Rubik", sans-serif;
+}
+.about .about-main .right-page .about-caption span {
+  font-weight: bold;
+}
+.about .about-main .right-page .about-services {
+  background-color: rgba(170, 170, 170, 0.3);
+  border-radius: 30px;
+}
+.about .about-main .right-page .about-services .service-list {
+  width: 30%;
+}
+.about .about-main .right-page .about-services .service-list i {
+  font-size: 1.7em;
+}
+
+@media only screen and (max-width: 992px) {
+  .about .title h1 {
+    font-family: "Rubik", sans-serif;
+    color: #ffd803 !important;
+  }
+  .about .about-main .left-page {
+    border: 1px solid salmon;
+  }
+  .about .about-main .left-page .background-image {
+    background: linear-gradient(rgba(170, 170, 170, 0.3), #fff);
+    width: 80%;
+    border-radius: 30px;
+    margin: 42px;
+  }
+  .about .about-main .left-page .background-image img {
+    position: block;
+    width: 20em;
+    border: 1px solid;
+  }
+  .about .about-main .right-page .about-logo h1 {
+    font-family: "Rubik", sans-serif;
+  }
+  .about .about-main .right-page .about-caption span {
+    font-weight: bold;
+  }
+  .about .about-main .right-page .about-services {
+    background-color: rgba(170, 170, 170, 0.3);
+    border-radius: 30px;
+  }
+  .about .about-main .right-page .about-services .service-list {
+    width: 30%;
+  }
+  .about .about-main .right-page .about-services .service-list p {
+    font-size: 12px;
+  }
+  .about .about-main .right-page .about-services .service-list i {
+    font-size: 1.7em;
+  }
+}

@@ -3,11 +3,11 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Bootstrap demo</title>
+    <title>Register</title>
     <?php include('./app/layouts/font.php');?>
     <link rel="stylesheet" href="./app/assets/css/bootstrap/css/bootstrap.min.css">
     <!-- css -->
-    <link rel="stylesheet" href="./app/assets/css/style.css" />
+    <link rel="stylesheet" href="./app/assets/css/footer2.css" />
     <link rel="stylesheet" href="./app/assets/css/register.css" />
   </head>
   <body>
@@ -19,7 +19,7 @@
           <div class="row justify-content-center mx-1 mt-5 m-lg-5">
             <div class="col-12 col-lg-8 form-wrapper p-4 rounded">
               <div class="section-title text-center">
-                <h1 class="fst-italic">DIRENT</h1>
+                <h1 class="fst-italic fw-bold">DIRENT</h1>
               </div>
               <form action="" class="mt-4">
                 <div class="row">
@@ -152,7 +152,7 @@
                           <div class="col-12">
                             <p class="text-muted">
                               Already have an account? Click here to
-                              <span> <a href="#">Login</a></span>
+                              <span> <a href="login.php">Login</a></span>
                             </p>
                           </div>
                           <div class="col-12">
@@ -173,9 +173,10 @@
 
 <?php include ('./footer.php'); ?>
     <!-- js start -->
-    <script src="app/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="app/assets/css/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="app/assets/js/app.js"></script>
+    <script src="app/assets/js/index.js"></script>
+    <!-- <script src="app/assets/js/swiper.js"></script> -->
     <!-- js end -->
   </body>
 </html>
