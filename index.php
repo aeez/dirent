@@ -2,9 +2,6 @@
 
 include('./config/conn.php');
 
-// if (!isset($_SESSION['login'])) {
-//   header('location: index.php');
-// }
 
 ?>
 
@@ -254,8 +251,40 @@ include('./config/conn.php');
           </div>
 
           <!-- tombol tambah komentar -->
+          
           <?php if (isset($_SESSION['login'])) : ?>
-          <button type="button" class="btn btn-primary btn-lg m-auto d-block mb-5">Berikan ulasan Anda!</button>
+          <div class="button-modal">
+            <button type="button" class="btn d-flex m-auto mb-4 px-4 py-2" data-bs-toggle="modal" data-bs-target="#exampleModal">Berikan ulasan Anda</button>
+          </div>
+
+          <!-- form -->
+
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header d-flex justify-content-center">
+                  <h1 class="modal-title fs-5 " id="exampleModalLabel">Beri Ulasan</h1>
+                </div>
+                <div class="modal-body">
+                  <form action="" method="POST">
+                    <div class="mb-3">
+                      <label for="nama" class="form-label">Nama</label>
+                      <input type="text" class="form-control" id="nama" name="nama">
+                    </div>
+                    <div class="mb-3">
+                      <label for="ulasan" class="form-label">Example textarea</label>
+                      <textarea class="form-control" id="ulasan" rows="3" name="ulasan"></textarea>
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="button" class="btn send">Kirim</button>
+                </div>
+              </div>
+            </div>
+          </div>
           <?php endif; ?>
 
           <div class="row card-swipper">
