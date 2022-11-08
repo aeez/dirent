@@ -1,5 +1,5 @@
 <?php
-include('./config/functions/user/functionAuth.php');
+include('./config/functions/customer/functionAuth.php');
 
 if (isset($_SESSION['login']) && (isset($_SESSION['level']) == 'siswa')) {
     header('location:index.php');

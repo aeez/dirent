@@ -5,7 +5,7 @@
       </div>
       <nav class="navbar navbar-expand-lg">
         <div class="container">
-          <a class="navbar-brand fst-italic fs-2" href="homepage.php">DIRENT</a>
+          <a class="navbar-brand fst-italic fs-2" href="index.php">DIRENT</a>
           <button
             class="navbar-toggler"
             type="button"

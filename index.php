@@ -1,9 +1,10 @@
 <?php 
 
 include('./config/conn.php');
-if (!isset($_SESSION['login'])) {
-  header('location: login.php');
-}
+
+// if (!isset($_SESSION['login'])) {
+//   header('location: index.php');
+// }
 
 ?>
 
@@ -251,27 +252,12 @@ if (!isset($_SESSION['login'])) {
           <div class="row title mb-5 mb-lg-5 text-center">
             <h1 class="fw-semibold">ULASAN PELANGGAN</h1>
           </div>
-          <div class="row give-review mb-5 py-3 p-lg-3 justify-content-center">
-            <div class="col-10 col-lg-12 form-wrapper">
-              <h4 class="mb-4">Beri Ulasan</h4>
-              <div class="review-form mb-3">
-                <label for="exampleInputEmail1" class="form-label">Nama</label>
-                <input
-                  type="text"
-                  class="form-control mb-2"
-                  id="exampleInputEmail1"
-                  aria-describedby="emailHelp"
-                />
-                <label for="floatingTextarea2" class="form-label">Ulasan</label>
-                <textarea
-                  class="form-control"
-                  id="floatingTextarea2"
-                  style="height: 100px"
-                ></textarea>
-              </div>
-              <button class="btn border py-2 px-5">Kirim</button>
-            </div>
-          </div>
+
+          <!-- tombol tambah komentar -->
+          <?php if (isset($_SESSION['login'])) : ?>
+          <button type="button" class="btn btn-primary btn-lg m-auto d-block mb-5">Berikan ulasan Anda!</button>
+          <?php endif; ?>
+
           <div class="row card-swipper">
             <div class="swiper mySwiper">
               <div class="swiper-wrapper">
