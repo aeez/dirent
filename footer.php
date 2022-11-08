@@ -51,7 +51,7 @@
             </div>
           </div>
         </div>
-        <div class="row footer-bottom justify-content-center pb-3">
+        <div class="row footer-bottom justify-content-center pb-3 mt-3">
           <div class="col-10 wrapper-text">
             <p class="text-center mt-3">© 2022 DIRENT All Rights Reserved.</p>
           </div>

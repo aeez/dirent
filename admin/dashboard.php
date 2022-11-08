@@ -5,7 +5,7 @@ if (!isset($_SESSION['login'])) {
 }
 
 if ($_SESSION['level'] == 'siswa') {
-  header('location:home.php');
+  header('location:index.php');
 }
 
 $jumlahSiswa = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM siswa"));

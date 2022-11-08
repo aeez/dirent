@@ -30,7 +30,11 @@
               </li>
             </ul>
             <div class="btn-login">
-              <a href="login.php" class="btn px-4 py-2">SIGN IN / UP</a>
+              <?php if (isset($_SESSION['login'])) : ?>
+                <a href="logout.php" class="btn px-4 py-2">LOG OUT</a>
+              <?php else : ?>
+                <a href="login.php" class="btn px-4 py-2">SIGN IN / UP</a>
+              <?php endif; ?>
             </div>
           </div>
         </div>

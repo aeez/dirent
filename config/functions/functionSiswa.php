@@ -6,7 +6,7 @@ if (!isset($_SESSION['login'])) {
 }
 
 if ($_SESSION['level'] == 'siswa') {
-    header('location:home.php');
+    header('location:index.php');
 }
 
 function query($query)

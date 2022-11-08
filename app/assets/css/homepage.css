@@ -13,6 +13,7 @@ main {
 .home-page .wrapper-home-page .row .caption h1 {
   color: #272343;
   font-family: "Rubik", sans-serif;
+  font-size: 4rem;
 }
 .home-page .wrapper-home-page .row .caption h1 span {
   color: #ffd803 !important;
