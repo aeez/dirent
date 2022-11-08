@@ -67,13 +67,17 @@ main {
 }
 
 .review .button-modal button {
-  background-color: #272343;
-  color: white;
+  background-color: #ffd803 !important;
+  color: #272343 !important;
 }
 
 .review .modal .modal-footer .send {
   background-color: #272343;
   color: white;
+}
+
+.review .modal .modal-footer .close {
+  border: 1px solid #272343;
 }
 
 .review .container .title h1 {

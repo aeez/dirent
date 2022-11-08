@@ -273,13 +273,13 @@ include('./config/conn.php');
                       <input type="text" class="form-control" id="nama" name="nama">
                     </div>
                     <div class="mb-3">
-                      <label for="ulasan" class="form-label">Example textarea</label>
+                      <label for="ulasan" class="form-label">Ulasan</label>
                       <textarea class="form-control" id="ulasan" rows="3" name="ulasan"></textarea>
                     </div>
                   </form>
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="button" class="btn close" data-bs-dismiss="modal">Tutup</button>
                   <button type="button" class="btn send">Kirim</button>
                 </div>
               </div>
