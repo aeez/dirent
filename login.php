@@ -1,46 +1,46 @@
 <?php
 include('./config/functions/customer/functionAuth.php');
 
-if (isset($_SESSION['login']) && (isset($_SESSION['level']) == 'siswa')) {
+if (isset($_SESSION['login']) && (isset($_SESSION['level']) == 'customer')) {
     header('location:index.php');
 }
 
 if (isset($_POST['login'])) {
 
-    $username = $_POST['username'];
+    $email = $_POST['email'];
     $password = $_POST['password'];
 
     // $petugasInfo = mysqli_query($conn, "SELECT * FROM petugas WHERE username = '$username'");
-    $siswaInfo = mysqli_query($conn, "SELECT * FROM siswa WHERE username = '$username'");
+    $customerInfo = mysqli_query($conn, "SELECT * FROM customer WHERE email = '$email'");
 
-    if (mysqli_num_rows($siswaInfo) === 0) {
+    if (mysqli_num_rows($customerInfo) === 0) {
         $error4 = true;
-    } //else if (mysqli_num_rows($siswaInfo) === 0) {
+    } //else if (mysqli_num_rows($customerInfo) === 0) {
         //$error4 = true;
     //}
 
-    if (mysqli_num_rows($siswaInfo) === 1) {
+    if (mysqli_num_rows($customerInfo) === 1) {
 
-        $row = mysqli_fetch_assoc($siswaInfo);
+        $row = mysqli_fetch_assoc($customerInfo);
 
         if (password_verify($password, $row['password'])) {
             // session set
             $_SESSION['login'] = true;
-            $_SESSION['nama'] = $row['nama_siswa'];
+            $_SESSION['email'] = $row['email'];
             $_SESSION['level'] = $row['level'];
             header('location: index.php');
             exit;
         }
 
         $error = true;
-    } //else if (mysqli_num_rows($siswaInfo) === 1) {
+    } //else if (mysqli_num_rows($customerInfo) === 1) {
 
-    //     $row = mysqli_fetch_assoc($siswaInfo);
+    //     $row = mysqli_fetch_assoc($customerInfo);
 
     //     if (password_verify($password, $row['password'])) {
     //         // sessin set
     //         $_SESSION['login'] = true;
-    //         $_SESSION['nama'] = $row['nama_siswa'];
+    //         $_SESSION['nama'] = $row['nama_customer'];
     //         $_SESSION['level'] = $row['level'];
     //         header('location: home.php');
     //         exit;
@@ -91,11 +91,11 @@ if (isset($_POST['login'])) {
                         <form action="" method="POST">
                             <div class="mb-3">
                                 <input
-                                    type="text"
+                                    type="email"
                                     class="form-control"
-                                    name="username"
-                                    id="username"
-                                    placeholder="Username"
+                                    name="email"
+                                    id="email"
+                                    placeholder="Email"
                                     required
                                 />
                             </div>

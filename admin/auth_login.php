@@ -3,8 +3,8 @@ include('../config/functions/functionAuth.php');
 
 if (isset($_SESSION['login']) && (isset($_SESSION['level']) == 'admin') || (isset($_SESSION['level']) == 'petugas')) {
     header('location: dashboard.php');
-} else if (isset($_SESSION['login']) && (isset($_SESSION['level']) == 'siswa')) {
-    header('location:home.php');
+} else if (isset($_SESSION['login']) && (isset($_SESSION['level']) == 'customer')) {
+    header('location:../index.php');
 }
 
 if (isset($_POST['login'])) {
@@ -63,7 +63,7 @@ if (isset($_POST['login'])) {
     <meta name="description" content="">
     <meta name="author" content="">
     <title>DIRENT</title>
-    <link href="../app/assets/css/login.css" rel="stylesheet">
+    <link href="../app/assets/css/admin/login.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;1,300;1,600&family=Rubik:ital,wght@0,300;0,500;0,600;0,800;1,300;1,700&display=swap" rel="stylesheet">

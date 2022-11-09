@@ -1,19 +1,19 @@
 <?php
-include('../config/functions/functionSiswa.php');
+include('../config/functions/functionCustomer.php');
 if (isset($_POST['submit'])) {
 
     if (tambah($_POST) > 0) {
         echo "
             <script>
                 alert('Data berhasil ditambah!');
-                document.location.href = 'siswa_tbl.php';
+                document.location.href = 'customer_tbl.php';
             </script>
         ";
     } else {
         echo "
             <script>
                 alert('Data gagal ditambah!');
-                document.location.href = 'siswa_tambah.php';
+                document.location.href = 'customer_tambah.php';
             </script>
         ";
     }
@@ -65,34 +65,39 @@ if (isset($_POST['submit'])) {
                                     <div class="card-body">
                                         <form action="" method="POST">
                                             <div class="form-group">
-                                                <label for="nis">NIK</label>
-                                                <input type="number" class="form-control" id="nis" name="nis" required>
+                                                <label for="nik">NIK</label>
+                                                <input type="number" class="form-control" id="nik" name="nik" required>
                                             </div>
                                             <div class="form-group">
-                                                <label for="nama_siswa">Nama Lengkap</label>
-                                                <input type="text" class="form-control" id="nama_siswa" name="nama_siswa" required>
+                                                <label for="nama_lengkap">Nama Lengkap</label>
+                                                <input type="text" class="form-control" id="nama_lengkap" name="nama_lengkap" required>
                                             </div>
                                             <div class="form-group">
-                                                <label for="kelas">Email</label>
-                                                <input type="text" class="form-control" id="kelas" name="kelas" required>
+                                                <label for="alamat">Alamat</label>
+                                                <input type="text" class="form-control" id="alamat" name="alamat" required>
                                             </div>
                                             <div class="form-group">
-                                                <label for="no_telp">Password</label>
+                                                <label for="no_telp">Nomor Telepon</label>
                                                 <input type="text" class="form-control" id="no_telp" name="no_telp" required>
                                             </div>
                                             <div class="form-group">
-                                                <label for="no_telp">Alamat</label>
-                                                <input type="text" class="form-control" id="no_telp" name="no_telp" required>
+                                                <label for="kota">Kota</label>
+                                                <input type="text" class="form-control" id="kota" name="kota" required>
                                             </div>
                                             <div class="form-group">
-                                                <label for="no_telp">Kota</label>
-                                                <input type="text" class="form-control" id="no_telp" name="no_telp" required>
+                                                <label for="kode_pos">Kode Pos</label>
+                                                <input type="text" class="form-control" id="kode_pos" name="kode_pos" required>
                                             </div>
                                             <div class="form-group">
-                                                <label for="no_telp">Kode Pos</label>
-                                                <input type="number" class="form-control" id="no_telp" name="no_telp" required>
+                                                <label for="email">Email</label>
+                                                <input type="email" class="form-control" id="email" name="email" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="password">Password</label>
+                                                <input type="password" class="form-control" id="password" name="password" required>
                                             </div>
                                             <button type="submit" name="submit" class="btn btn-success">Tambah</button>
+                                            <a href="customer_tbl.php" class="btn btn-outline-dark">Kembali</a></td>
                                         </form>
                                     </div>
                                 </div>

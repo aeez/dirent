@@ -1,9 +1,9 @@
 <?php
-include('../config/functions/functionSiswa.php');
+include('../config/functions/functionCustomer.php');
 
-$id = $_GET['id_siswa'];
+$id = $_GET['id_customer'];
 
-$detailSiswa = detail($id);
+$detailCustomer = detail($id);
 ?>
 
 <!DOCTYPE html>
@@ -44,39 +44,40 @@ $detailSiswa = detail($id);
                             <!-- Simple Tables -->
                             <div class="card">
                                 <div class="table-responsive mt-4">
+                                    <a href="customer_tbl.php" class="btn btn-outline-dark ml-3 mb-3">Kembali</a></td>
                                     <table class="table align-items-center table-flush">
                                         <tbody>
                                             <tr>
                                                 <th style="width:250px;">NIK</th>
-                                                <td>: <?= $detailSiswa['nis']; ?></td>
+                                                <td>: <?= $detailCustomer['nik']; ?></td>
 
                                             </tr>
                                             <tr>
                                                 <th style="width:250px;">Nama Lengkap</th>
-                                                <td>: <?= $detailSiswa['nama_siswa']; ?></td>
-                                            </tr>
-                                            <tr>
-                                                <th style="width:250px;">Email</th>
-                                                <td>: <?= $detailSiswa['kelas']; ?></td>
-                                            </tr>
-                                            <tr>
-                                                <th style="width:250px;">Password</th>
-                                                <td>: <?= $detailSiswa['no_telp']; ?></td>
+                                                <td>: <?= $detailCustomer['nama_lengkap']; ?></td>
                                             </tr>
                                             <tr>
                                                 <th style="width:250px;">Alamat</th>
-                                                <td>: <?= $detailSiswa['username']; ?></td>
+                                                <td>: <?= $detailCustomer['alamat']; ?></td>
+                                            </tr>
+                                            <tr>
+                                                <th style="width:250px;">Nomor Telepon</th>
+                                                <td>: <?= $detailCustomer['no_telp']; ?></td>
                                             </tr>
                                             <tr>
                                                 <th style="width:250px;">Kota</th>
-                                                <td>: <?= $detailSiswa['password']; ?></td>
+                                                <td>: <?= $detailCustomer['kota']; ?></td>
                                             </tr>
                                             <tr>
                                                 <th style="width:250px;">Kode Pos</th>
-                                                <td>: <?= $detailSiswa['password']; ?></td>
+                                                <td>: <?= $detailCustomer['kode_pos']; ?></td>
                                             </tr>
                                             <tr>
-                                                <td colspan="2" class="text-right"><a href="customer_ubah.php?id_siswa=<?= $detailSiswa['id_siswa']; ?>" class="btn btn-warning">Ubah</a> <a href="customer_hapus.php?id_siswa=<?= $detailSiswa['id_siswa']; ?>" class="btn btn-danger" onclick="return confirm('Yakin!')">Hapus</a></td>
+                                                <th style="width:250px;">Email</th>
+                                                <td>: <?= $detailCustomer['email']; ?></td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2" class="text-right"><a href="customer_ubah.php?id_customer=<?= $detailCustomer['id_customer']; ?>" class="btn btn-warning">Ubah</a> <a href="customer_hapus.php?id_customer=<?= $detailCustomer['id_customer']; ?>" class="btn btn-danger" onclick="return confirm('Yakin!')">Hapus</a></td>
                                             </tr>
                                         </tbody>
                                     </table>

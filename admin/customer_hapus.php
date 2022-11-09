@@ -1,20 +1,20 @@
 <?php
-include('../config/functions/functionSiswa.php');
+include('../config/functions/functionCustomer.php');
 
-$id = $_GET['id_siswa'];
+$id = $_GET['id_customer'];
 
 if (hapus($id) > 0) {
     echo "
     <script>
         alert('Data berhasil dihapus!');
-        document.location.href = 'siswa_tbl.php';
+        document.location.href = 'customer_tbl.php';
     </script>
 ";
 } else {
     echo "
     <script>
         alert('Data gagal dihapus!');
-        document.location.href = 'siswa_detail.php';
+        document.location.href = 'customer_detail.php';
     </script>
 ";
 }

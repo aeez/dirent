@@ -1,22 +1,22 @@
 <?php
-include('../config/functions/functionSiswa.php');
-$siswa = query("SELECT * FROM siswa");
+include('../config/functions/functionCustomer.php');
+$customer = query("SELECT * FROM customer");
 $awalData = 0;
 $jumlahDataPerhalaman = 5;
-$jumlahData = count(query("SELECT * FROM siswa"));
+$jumlahData = count(query("SELECT * FROM customer"));
 $jumlahHalaman = ceil($jumlahData / $jumlahDataPerhalaman);
 $halamanAktif = (isset($_GET['halaman']) ? $_GET['halaman'] : 1);
 
 $awalData = ($jumlahDataPerhalaman * $halamanAktif) - $jumlahDataPerhalaman;
-$siswa = query("SELECT * FROM siswa Limit $awalData,$jumlahDataPerhalaman");
+$customer = query("SELECT * FROM customer Limit $awalData,$jumlahDataPerhalaman");
 
 if (isset($_GET['cari'])) {
     $keyword = $_GET["keyword"];
-    $jumlahData = count(query("SELECT * FROM siswa Where nama_siswa LIKE '%$keyword%' OR nis LIKE '%$keyword%' OR kelas LIKE '%$keyword%' OR username Like '%$keyword%'"));
+    $jumlahData = count(query("SELECT * FROM customer Where nama_lengkap LIKE '%$keyword%' OR nik LIKE '%$keyword%' OR email LIKE '%$keyword%'"));
     $jumlahHalaman = ceil($jumlahData / $jumlahDataPerhalaman);
     $halamanAktif = (isset($_GET['halaman']) ? $_GET['halaman'] : 1);
     $awalData = ($jumlahDataPerhalaman * $halamanAktif) - $jumlahDataPerhalaman;
-    $siswa = cari($_GET["keyword"], $awalData, $jumlahDataPerhalaman);
+    $customer = cari($_GET["keyword"], $awalData, $jumlahDataPerhalaman);
 }
 ?>
 
@@ -82,12 +82,12 @@ if (isset($_GET['cari'])) {
                                         </thead>
                                         <tbody>
                                             <?php $no = 1; ?>
-                                            <?php foreach ($siswa as $dataSiswa) : ?>
+                                            <?php foreach ($customer as $dataCustomer) : ?>
                                                 <tr>
                                                     <td><?= $no++; ?></td>
-                                                    <td><?= $dataSiswa['nis']; ?></td>
-                                                    <td><?= $dataSiswa['nama_siswa']; ?></td>
-                                                    <td><a href="customer_detail.php?id_siswa=<?= $dataSiswa['id_siswa']; ?>" class="btn btn-sm btn-info">Detail</a></td>
+                                                    <td><?= $dataCustomer['nik']; ?></td>
+                                                    <td><?= $dataCustomer['nama_lengkap']; ?></td>
+                                                    <td><a href="customer_detail.php?id_customer=<?= $dataCustomer['id_customer']; ?>" class="btn btn-sm btn-info">Detail</a></td>
                                                 </tr>
                                             <?php endforeach; ?>
                                         </tbody>

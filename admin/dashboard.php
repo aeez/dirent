@@ -4,14 +4,14 @@ if (!isset($_SESSION['login'])) {
   header('location: auth_login.php');
 }
 
-if ($_SESSION['level'] == 'siswa') {
+if ($_SESSION['level'] == 'customer') {
   header('location:index.php');
 }
 
-$jumlahSiswa = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM siswa"));
+$jumlahCustomer = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM customer"));
 $jumlahPetugas = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM petugas"));
-$jumlahBuku = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM buku"));
-$jumlahPeminjam = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM peminjaman WHERE status = 'Dipinjam'"));
+$jumlahMobil = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM mobil"));
+$jumlahPeminjam = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM pemesanan WHERE status = 'Dipinjam'"));
 
 ?>
 <!DOCTYPE html>
@@ -55,7 +55,7 @@ $jumlahPeminjam = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM peminjaman 
                   <div class="row align-items-center">
                     <div class="col mr-2">
                       <div class="text-xl font-weight-bold text-uppercase mb-1">Jumlah Customer</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $jumlahSiswa; ?></div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $jumlahCustomer; ?></div>
                     </div>
                     <div class="col-auto">
                       <i class="fas fa-users fa-2x text-primary"></i>
@@ -87,7 +87,7 @@ $jumlahPeminjam = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM peminjaman 
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                       <div class="text-xl font-weight-bold text-uppercase mb-1">Jumlah Mobil</div>
-                      <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><?= $jumlahBuku; ?></div>
+                      <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><?= $jumlahMobil; ?></div>
                     </div>
                     <div class="col-auto">
                       <i class="fas fa-book-open fa-2x text-info"></i>

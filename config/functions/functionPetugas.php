@@ -5,7 +5,7 @@ if (!isset($_SESSION['login'])) {
     header('location: auth_login.php');
 }
 
-if ($_SESSION['level'] == 'siswa') {
+if ($_SESSION['level'] == 'customer') {
     header('location:index.php');
 }
 
