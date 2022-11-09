@@ -37,8 +37,8 @@
             </a>
             <div id="collapsePerpustakaan" class="collapse" aria-labelledby="headingPerpustakaan" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Manajemen Perpustakaan</h6>
-                    <a class="collapse-item" href="./buku_tbl.php">Manajemen Mobil</a>
+                    <h6 class="collapse-header">Manajemen Mobil</h6>
+                    <a class="collapse-item" href="./mobil_tbl.php">Manajemen Mobil</a>
                 </div>
             </div>
         </li>
