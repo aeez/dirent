@@ -48,7 +48,7 @@ $detailMobil = detail($id);
                                         <tbody>
                                             <tr>
                                                 <th style="width:250px;">Gambar</th>
-                                                <td>: <?= $detailMobil['gambar']; ?></td>
+                                                <td>: <img src="../app/img/<?= $detailMobil['gambar']; ?>" alt="" width="100" height="100" class="img-thumbnail"></td>
                                             </tr>
                                             <tr>
                                                 <th style="width:250px;">Nama Mobil</th>
@@ -80,8 +80,8 @@ $detailMobil = detail($id);
                                             </tr>
                                             <tr>
                                                 <td colspan="2" class="text-right">
-                                                    <a href="mobil_ubah.php?id_petugas=<?= $detailMobil['id_mobil']; ?>" class="btn btn-warning">Ubah</a>
-                                                    <a href="mobil_hapus.php?id_petugas=<?= $detailMobil['id_mobil']; ?>" class="btn btn-danger" onclick="return confirm('Yakin?')">Hapus</a>
+                                                    <a href="mobil_ubah.php?id_mobil=<?= $detailMobil['id_mobil']; ?>" class="btn btn-warning">Ubah</a>
+                                                    <a href="mobil_hapus.php?id_mobil=<?= $detailMobil['id_mobil']; ?>" class="btn btn-danger" onclick="return confirm('Yakin?')">Hapus</a>
                                                 </td>
                                             </tr>
                                         </tbody>

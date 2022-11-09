@@ -87,7 +87,7 @@ if (isset($_GET['cari'])) {
                                             <?php foreach ($mobil as $dataMobil) : ?>
                                                 <tr>
                                                     <td><?= $no++; ?></td>
-                                                    <td><img src="./app/img/<?= $dataBuku['gambar']; ?>" alt="" width="100" height="120" class="img-thumbnail"></td>
+                                                    <td><img src="../app/img/<?= $dataMobil['gambar']; ?>" alt="" width="100" height="100" class="img-thumbnail"></td>
                                                     <td><?= $dataMobil['nama_mobil']; ?></td>
                                                     <td><?= $dataMobil['tahun_mobil']; ?></td>
                                                     <td><?= $dataMobil['stok']; ?></td>

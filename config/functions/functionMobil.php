@@ -35,6 +35,7 @@ function detail($id)
 function tambah($request)
 {
     global $conn;
+
     $nama_mobil = htmlspecialchars($request['nama_mobil']);
     $tahun_mobil = htmlspecialchars($request['tahun_mobil']);
     $kursi = htmlspecialchars($request['kursi']);
@@ -42,6 +43,7 @@ function tambah($request)
     $bensin = htmlspecialchars($request['bensin']);
     $stok = htmlspecialchars($request['stok']);
     $harga = htmlspecialchars($request['harga']);
+
     $gambar = upload();
 
     if (!$gambar) {
@@ -49,7 +51,7 @@ function tambah($request)
     }
 
     $query = "INSERT INTO mobil VALUES
-            ('','$gambar',$nama_mobil','$tahun_mobil','$kursi','$transmisi','$bensin','$stok','$harga',Now(),Now())";
+            ('','$gambar',' $nama_mobil','$tahun_mobil','$kursi','$transmisi','$bensin','$stok','$harga',Now(),Now())";
 
     mysqli_query($conn, $query);
 
@@ -92,7 +94,7 @@ function upload()
     $namaFileBaru .= '.';
     $namaFileBaru .= $ekstensiGambar;
 
-    move_uploaded_file($tmpName, 'app/img/' . $namaFileBaru);
+    move_uploaded_file($tmpName, '../app/img/' . $namaFileBaru);
 
     return $namaFileBaru;
 }
@@ -107,7 +109,7 @@ function ubah($request)
     $kursi = htmlspecialchars($request['kursi']);
     $transmisi = htmlspecialchars($request['transmisi']);
     $bensin = htmlspecialchars($request['bensin']);
-    $stok = htmlspecialchars($request['stok']) /*PASSWORD_DEFAULT)*/;
+    $stok = htmlspecialchars($request['stok']);
     $harga = htmlspecialchars($request['harga']);
     $created_at = $request['created_at'];
     $gambarLama = htmlspecialchars($request['gambarLama']);
@@ -124,7 +126,7 @@ function ubah($request)
             tahun_mobil = '$tahun_mobil',
             kursi = '$kursi',
             transmisi = '$transmisi',
-            bensin = '$bensin,
+            bensin = '$bensin',
             stok = '$stok',
             harga = '$harga',
             created_at = '$created_at',

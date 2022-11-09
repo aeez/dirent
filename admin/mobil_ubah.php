@@ -74,7 +74,7 @@ if (isset($_POST['submit'])) {
                                             <div class="form-group">
                                                 <label for="gambar">Gambar</label>
                                                 <input type="file" class="form-control" id="gambar" name="gambar">
-                                                <img src="./app/img/<?= $dataMobil['gambar']; ?>" alt="" width="100" height="120" class="img-thumbnail">
+                                                <img src="../app/img/<?= $dataMobil['gambar']; ?>" alt="" width="100" height="120" class="img-thumbnail">
                                             </div>
                                             <div class="form-group">
                                                 <label for="nama_mobil">Nama Mobil</label>

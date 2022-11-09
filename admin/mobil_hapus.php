@@ -1,5 +1,5 @@
 <?php
-include('./config/functions/functionMobil.php');
+include('../config/functions/functionMobil.php');
 
 $id = $_GET['id_mobil'];
 
