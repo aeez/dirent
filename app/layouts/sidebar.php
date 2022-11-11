@@ -29,27 +29,20 @@
                 </div>
             </div>
         </li>
-
         <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePerpustakaan" aria-expanded="true" aria-controls="collapsePerpustakaan">
+            <a class="nav-link" href="./mobil_tbl.php">
                 <i class="bi bi-car-front-fill"></i>
                 <span>Mobil</span>
             </a>
-            <div id="collapsePerpustakaan" class="collapse" aria-labelledby="headingPerpustakaan" data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Manajemen Mobil</h6>
-                    <a class="collapse-item" href="./mobil_tbl.php">Manajemen Mobil</a>
-                </div>
-            </div>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="./history_tbl.php">
+            <a class="nav-link" href="./pemesanan_tbl.php">
                 <i class="fas fa-history"></i>
                 <span>Pemesanan</span>
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="./kategori_tbl.php">
+            <a class="nav-link" href="./komentar_tbl.php">
                 <i class="bi bi-chat-dots"></i>
                 <span>Komentar</span>
             </a>
@@ -58,22 +51,15 @@
 
     <?php if ($_SESSION['level'] == 'petugas') : ?>
         <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePerpustakaan" aria-expanded="true" aria-controls="collapsePerpustakaan">
-                <i class="fas fa-book-reader"></i>
-                <span>Perpustakaan</span>
+            <a class="nav-link" href="./mobil_tbl.php">
+                <i class="bi bi-car-front-fill"></i>
+                <span>Mobil</span>
             </a>
-            <div id="collapsePerpustakaan" class="collapse" aria-labelledby="headingPerpustakaan" data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Manajemen Perpustakaan</h6>
-                    <a class="collapse-item" href="./buku_tbl.php">Manajemen Buku</a>
-                    <a class="collapse-item" href="./kategori_tbl.php">Manajemen Kategori Buku</a>
-                </div>
-            </div>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="./history_tbl.php">
+            <a class="nav-link" href="./pemesanan_tbl.php">
                 <i class="fas fa-history"></i>
-                <span>Transaksi</span>
+                <span>Pemesanan</span>
             </a>
         </li>
     <?php endif; ?>

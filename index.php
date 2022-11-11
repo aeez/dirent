@@ -1,8 +1,26 @@
 <?php 
 
-include('./config/conn.php');
+// include('./config/conn.php');
+include('./config/functions/customer/functionKomentar.php');
 
+if (isset($_POST['submit'])) {
 
+    if (tambah($_POST) > 0) {
+        echo "
+            <script>
+                alert('Data berhasil ditambah!');
+                document.location.href = 'index.php';
+            </script>
+        ";
+    } else {
+        echo "
+            <script>
+                alert('Data gagal ditambah!');
+                document.location.href = 'index.php';
+            </script>
+        ";
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -10,7 +28,7 @@ include('./config/conn.php');
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Home Page</title>
+    <title>DIRENT</title>
     <?php include('./app/layouts/font.php');?>
     <link rel="stylesheet" href="./app/assets/css/bootstrap/css/bootstrap.min.css">
     <link
@@ -268,19 +286,16 @@ include('./config/conn.php');
                 </div>
                 <div class="modal-body">
                   <form action="" method="POST">
-                    <div class="mb-3">
-                      <label for="nama" class="form-label">Nama</label>
-                      <input type="text" class="form-control" id="nama" name="nama">
-                    </div>
+                    <input type="hidden" name="id_customer" value="<?= $_SESSION['id_customer']; ?>">
                     <div class="mb-3">
                       <label for="ulasan" class="form-label">Ulasan</label>
-                      <textarea class="form-control" id="ulasan" rows="3" name="ulasan"></textarea>
+                      <textarea class="form-control" id="ulasan" rows="7" cols="10" name="ulasan" style="resize: none;"></textarea>
                     </div>
-                  </form>
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn close" data-bs-dismiss="modal">Tutup</button>
-                  <button type="button" class="btn send">Kirim</button>
+                    <button type="button" class="btn close" data-bs-dismiss="modal">Tutup</button>
+                    <button type="submit" name="submit" class="btn send">Kirim</button>
+                  </form>
                 </div>
               </div>
             </div>

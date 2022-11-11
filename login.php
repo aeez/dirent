@@ -28,6 +28,7 @@ if (isset($_POST['login'])) {
             $_SESSION['login'] = true;
             $_SESSION['email'] = $row['email'];
             $_SESSION['level'] = $row['level'];
+            $_SESSION['id_customer'] = $row['id_customer'];
             header('location: index.php');
             exit;
         }
