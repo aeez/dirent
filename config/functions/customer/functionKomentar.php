@@ -1,14 +1,15 @@
 <?php
 include('./config/conn.php');
 
-if (!isset($_SESSION['login'])) {
-    header('location:login.php');
-}
+// if (!isset($_SESSION['login'])) {
+//     header('location:login.php');
+// }
 
 
 function query($query)
 {
     global $conn;
+    
     $result = mysqli_query($conn, $query);
     $rows = [];
     while ($row = mysqli_fetch_assoc($result)) {
@@ -23,10 +24,10 @@ function tambah($request)
     global $conn;
 
     $id_customer = htmlspecialchars($request['id_customer']);
-    $ulasan = htmlspecialchars($request['ulasan']);
+    $komentar = htmlspecialchars($request['komentar']);
 
     $query = "INSERT INTO komentar VALUES
-            ('','$id_customer','$ulasan',Now(),Now())";
+            ('','$id_customer','$komentar',Now(),Now())";
 
     mysqli_query($conn, $query);
 

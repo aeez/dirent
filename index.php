@@ -1,7 +1,9 @@
 <?php 
-
 // include('./config/conn.php');
 include('./config/functions/customer/functionKomentar.php');
+
+
+$komentar = query("SELECT * FROM komentar INNER JOIN customer ON komentar.id_customer = customer.id_customer");
 
 if (isset($_POST['submit'])) {
 
@@ -285,16 +287,17 @@ if (isset($_POST['submit'])) {
                   <h1 class="modal-title fs-5 " id="exampleModalLabel">Beri Ulasan</h1>
                 </div>
                 <div class="modal-body">
-                  <form action="" method="POST">
+                  <form action="" method="POST" id="form-input">
+                    <input type="hidden" name="id_komentar" id="id_komentar" value="0" />
                     <input type="hidden" name="id_customer" value="<?= $_SESSION['id_customer']; ?>">
                     <div class="mb-3">
                       <label for="ulasan" class="form-label">Ulasan</label>
-                      <textarea class="form-control" id="ulasan" rows="7" cols="10" name="ulasan" style="resize: none;"></textarea>
+                      <textarea class="form-control" id="komentar" rows="7" cols="10" name="komentar" style="resize: none;"></textarea>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn close" data-bs-dismiss="modal">Tutup</button>
-                    <button type="submit" name="submit" class="btn send">Kirim</button>
+                    <button type="submit" name="submit" class="btn send" id="kirim">Kirim</button>
                   </form>
                 </div>
               </div>
@@ -305,39 +308,15 @@ if (isset($_POST['submit'])) {
           <div class="row card-swipper">
             <div class="swiper mySwiper">
               <div class="swiper-wrapper">
+                <?php foreach ($komentar as $dataKomentar) : ?>
                 <div class="swiper-slide">
-                  <div class="swiper-content p-3">
-                    <h5 class="fw-bolder m-0">Cathrine</h5>
+                  <div class="swiper-content p-3 w-100">
+                    <h5 class="fw-bolder m-0"><?= $dataKomentar['nama_lengkap']; ?></h5>
                     <p class="swiper-title">Customer</p>
-                    <p class="swiper-review">
-                      Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                      Laudantium consequatur dolor non placeat, ea veritatis
-                      tempore adipisci at unde, nostrum soluta labore rerum.
-                      Ipsum, ex.
-                    </p>
+                    <p class="swiper-review"><?= $dataKomentar['komentar']; ?></p>
                   </div>
                 </div>
-                <div class="swiper-slide">
-                  <div class="swiper-content p-3">
-                    <h5 class="fw-bolder m-0">Jacob</h5>
-                    <p class="swiper-title">Customer</p>
-                    <p class="swiper-review">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Aliquam consequuntur labore maiores.
-                    </p>
-                  </div>
-                </div>
-                <div class="swiper-slide">
-                  <div class="swiper-content p-3">
-                    <h5 class="fw-bolder m-0">Akram</h5>
-                    <p class="swiper-title">Customer</p>
-                    <p class="swiper-review">
-                      Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                      Perspiciatis enim voluptatum, corrupti recusandae
-                      laudantium dolorum sed veritatis.
-                    </p>
-                  </div>
-                </div>
+                <?php endforeach; ?>
               </div>
               <!-- button -->
               <div class="swiper-button-next">
@@ -362,6 +341,40 @@ if (isset($_POST['submit'])) {
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     <script src="app/assets/js/index.js"></script>
     <script src="app/assets/js/swiper.js"></script>
+    <script>
+    //   $(document).ready(function(){
+    //   $('#form-input').on('submit', function(event){
+    //     event.preventDefault();
+    //     var form_data = $(this).serialize();
+    //     $.ajax({
+    //       url:"./config/functions/customer/functionKomentar.php",
+    //       method:"POST",
+    //       data:form_data,
+    //       success:function(data){
+    //         $('#form-input')[0].reset();
+    //         $('#id_komentar').val('0');
+    //         load_comment();
+    //       }, error: function(data) {
+    //               console.log(data.responseText)
+    //           }
+    //     })
+    //   });
+
+    //   load_comment();
+
+    //   function load_comment(){
+    //     $.ajax({
+    //       url:"./config/functions/customer/functionKomentar.php",
+    //       method:"POST",
+    //       success:function(data){
+    //         $('#display_comment').html(data);
+    //       }, error: function(data) {
+    //               console.log(data.responseText)
+    //           }
+    //     })
+    //   }
+    // });
+    </script>
     <!-- js end -->
   </body>
 </html>
