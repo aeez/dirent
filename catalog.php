@@ -1,6 +1,8 @@
 <?php 
 
-include('./config/conn.php');
+include('./config/functions/customer/functionMobil.php');
+
+$mobil = query("SELECT * FROM mobil");
 ?>
 
 <!DOCTYPE html>
@@ -32,19 +34,19 @@ include('./config/conn.php');
           </div>
           <div class="catalog-card my-3">
             <div class="row row-card justify-content-center">
-              <!-- avanza -->
+              <?php foreach ($mobil as $dataMobil) : ?>
               <div class="col-10 col-lg-4 mb-5 col-card">
                 <div class="card-car p-3">
                   <div class="card-image pt-1">
                     <img
-                      src="app/assets/img/mobil/avanza.png"
+                      src="./app/img/<?= $dataMobil['gambar']; ?>"
                       alt=""
                       class="w-100"
                     />
                   </div>
                   <div class="card-title fw-bold my-2 ms-3">
-                    <h6 class="fw-bold">Avanza (2015)</h6>
-                    <p>Rp. 350.000/hari</p>
+                    <h6 class="fw-bold"><?= $dataMobil["nama_mobil"] ?> (<?= $dataMobil["tahun_mobil"] ?>)</h6>
+                    <p>Rp. <?= number_format($dataMobil["harga"], 0, ".", "."); ?>/hari</p>
                   </div>
                   <div class="card-features mt-2">
                     <div class="row justify-content-between">
@@ -52,7 +54,7 @@ include('./config/conn.php');
                         <button class="btn mb-2">
                           <i class="bi bi-person-circle fs-4"></i>
                         </button>
-                        <p class="text-muted">6 Seats</p>
+                        <p class="text-muted"><?= $dataMobil["kursi"] ?> Kursi</p>
                       </div>
                       <div class="col-3 text-center">
                         <button class="btn mb-2">
@@ -64,13 +66,13 @@ include('./config/conn.php');
                         <button class="btn mb-2">
                           <i class="bi bi-joystick fs-4"></i>
                         </button>
-                        <p class="text-muted">Matic</p>
+                        <p class="text-muted"><?= $dataMobil["transmisi"] ?></p>
                       </div>
                       <div class="col-3 text-center">
                         <button class="btn mb-2">
                           <i class="bi bi-fuel-pump-fill fs-4"></i>
                         </button>
-                        <p class="text-muted">Pertamax</p>
+                        <p class="text-muted"><?= $dataMobil["bensin"] ?></p>
                       </div>
                     </div>
                   </div>
@@ -84,8 +86,9 @@ include('./config/conn.php');
                   </div>
                 </div>
               </div>
+              <?php endforeach; ?>
               <!-- Innova -->
-              <div class="col-10 col-lg-4 mb-5 col-card">
+              <!-- <div class="col-10 col-lg-4 mb-5 col-card">
                 <div class="card-car p-3">
                   <div class="card-image pt-1">
                     <img
@@ -135,9 +138,9 @@ include('./config/conn.php');
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> -->
               <!-- Alphard -->
-              <div class="col-10 col-lg-4 mb-5 col-card">
+              <!-- <div class="col-10 col-lg-4 mb-5 col-card">
                 <div class="card-car p-3">
                   <div class="card-image pt-1">
                     <img
@@ -187,9 +190,9 @@ include('./config/conn.php');
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> -->
               <!-- Camry -->
-              <div class="col-10 col-lg-4 mb-5 col-card">
+              <!-- <div class="col-10 col-lg-4 mb-5 col-card">
                 <div class="card-car p-3">
                   <div class="card-image pt-1">
                     <img
@@ -239,9 +242,9 @@ include('./config/conn.php');
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> -->
               <!-- Pajero Sport -->
-              <div class="col-10 col-lg-4 mb-5 col-card">
+              <!-- <div class="col-10 col-lg-4 mb-5 col-card">
                 <div class="card-car p-3">
                   <div class="card-image pt-1">
                     <img
@@ -291,9 +294,9 @@ include('./config/conn.php');
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> -->
               <!-- Fortuner -->
-              <div class="col-10 col-lg-4 mb-5 col-card">
+              <!-- <div class="col-10 col-lg-4 mb-5 col-card">
                 <div class="card-car p-3">
                   <div class="card-image pt-1">
                     <img
@@ -343,7 +346,7 @@ include('./config/conn.php');
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> -->
             </div>
           </div>
         </div>
