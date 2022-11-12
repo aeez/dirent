@@ -31,7 +31,7 @@
             </ul>
             <div class="btn-login">
               <?php if (isset($_SESSION['login'])) : ?>
-                <a href="logout.php" class="btn px-4 py-2">LOG OUT</a>
+                <a href="logout.php" class="btn px-4 py-2">Hi, <?= $_SESSION['nama_lengkap'] ?></a>
               <?php else : ?>
                 <a href="login.php" class="btn px-4 py-2">SIGN IN / UP</a>
               <?php endif; ?>

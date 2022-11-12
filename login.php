@@ -26,9 +26,10 @@ if (isset($_POST['login'])) {
         if (password_verify($password, $row['password'])) {
             // session set
             $_SESSION['login'] = true;
+            $_SESSION['id_customer'] = $row['id_customer'];
+            $_SESSION['nama_lengkap'] = $row['nama_lengkap'];
             $_SESSION['email'] = $row['email'];
             $_SESSION['level'] = $row['level'];
-            $_SESSION['id_customer'] = $row['id_customer'];
             header('location: index.php');
             exit;
         }

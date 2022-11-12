@@ -78,7 +78,7 @@ if (isset($_POST['submit'])) {
                                             </div>
                                             <div class="form-group">
                                                 <label for="no_telp">Nomor Telepon</label>
-                                                <input type="text" class="form-control" id="no_telp" name="no_telp" required>
+                                                <input type="number" class="form-control" id="no_telp" name="no_telp" required>
                                             </div>
                                             <div class="form-group">
                                                 <label for="kota">Kota</label>
@@ -86,7 +86,7 @@ if (isset($_POST['submit'])) {
                                             </div>
                                             <div class="form-group">
                                                 <label for="kode_pos">Kode Pos</label>
-                                                <input type="text" class="form-control" id="kode_pos" name="kode_pos" required>
+                                                <input type="number" class="form-control" id="kode_pos" name="kode_pos" required>
                                             </div>
                                             <div class="form-group">
                                                 <label for="email">Email</label>

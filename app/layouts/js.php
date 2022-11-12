@@ -4,3 +4,4 @@
 <script src="../app/assets/js/ruang-admin.min.js"></script>
 <script src="../app/assets/vendor/chart.js/Chart.min.js"></script>
 <script src="../app/assets/js/demo/chart-area-demo.js"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>

@@ -5,24 +5,7 @@ include('./config/functions/customer/functionKomentar.php');
 
 $komentar = query("SELECT * FROM komentar INNER JOIN customer ON komentar.id_customer = customer.id_customer");
 
-if (isset($_POST['submit'])) {
 
-    if (tambah($_POST) > 0) {
-        echo "
-            <script>
-                alert('Data berhasil ditambah!');
-                document.location.href = 'index.php';
-            </script>
-        ";
-    } else {
-        echo "
-            <script>
-                alert('Data gagal ditambah!');
-                document.location.href = 'index.php';
-            </script>
-        ";
-    }
-}
 ?>
 
 <!DOCTYPE html>
@@ -341,40 +324,32 @@ if (isset($_POST['submit'])) {
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     <script src="app/assets/js/index.js"></script>
     <script src="app/assets/js/swiper.js"></script>
-    <script>
-    //   $(document).ready(function(){
-    //   $('#form-input').on('submit', function(event){
-    //     event.preventDefault();
-    //     var form_data = $(this).serialize();
-    //     $.ajax({
-    //       url:"./config/functions/customer/functionKomentar.php",
-    //       method:"POST",
-    //       data:form_data,
-    //       success:function(data){
-    //         $('#form-input')[0].reset();
-    //         $('#id_komentar').val('0');
-    //         load_comment();
-    //       }, error: function(data) {
-    //               console.log(data.responseText)
-    //           }
-    //     })
-    //   });
-
-    //   load_comment();
-
-    //   function load_comment(){
-    //     $.ajax({
-    //       url:"./config/functions/customer/functionKomentar.php",
-    //       method:"POST",
-    //       success:function(data){
-    //         $('#display_comment').html(data);
-    //       }, error: function(data) {
-    //               console.log(data.responseText)
-    //           }
-    //     })
-    //   }
-    // });
-    </script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- js end -->
+
+    <?php 
+    if (isset($_POST['submit'])) {
+
+      if (tambah($_POST) > 0) {
+          echo "
+              <script>
+                Swal.fire(
+                  'Sukses!',
+                  'Terima kasih sudah memberikan ulasan!',
+                  'success'
+                )
+              </script>
+          ";
+      } else {
+          echo "
+              <script>
+                  alert('Data gagal ditambah!');
+                  document.location.href = 'index.php';
+              </script>
+          ";
+      }
+    }
+    
+    ?>
   </body>
 </html>
