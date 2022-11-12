@@ -16,6 +16,7 @@ $komentar = query("SELECT * FROM komentar INNER JOIN customer ON komentar.id_cus
     <title>DIRENT</title>
     <?php include('./app/layouts/font.php');?>
     <link rel="stylesheet" href="./app/assets/css/bootstrap/css/bootstrap.min.css">
+    <link rel="shortcut icon" href="app/assets/img/logodirent.png" type="image/x-icon">
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"

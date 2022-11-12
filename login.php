@@ -59,9 +59,10 @@ if (isset($_POST['login'])) {
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Login</title>
+    <title>Login DIRENT</title>
     <?php include('./app/layouts/font.php');?>
     <link rel="stylesheet" href="./app/assets/css/bootstrap/css/bootstrap.min.css">
+    <link rel="shortcut icon" href="app/assets/img/logodirent.png" type="image/x-icon">
     <!-- css -->
     <link rel="stylesheet" href="./app/assets/css/footer2.css" />
     <link rel="stylesheet" href="./app/assets/css/newlogin.css" />
@@ -77,7 +78,7 @@ if (isset($_POST['login'])) {
                     <div class="form-logo text-center my-5">
                         <h1 class="fw-bold fst-italic">DIRENT</h1>
                     </div>
-                    
+
                     <?php if (isset($error)) { ?>
                         <div class="alert alert-danger alert-dismissible" role="alert">
                             Gagal, mohon periksa lagi username dan password Anda!
