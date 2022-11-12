@@ -3,7 +3,7 @@
 include('./config/functions/customer/functionKomentar.php');
 
 
-$komentar = query("SELECT * FROM komentar INNER JOIN customer ON komentar.id_customer = customer.id_customer");
+$komentar = query("SELECT * FROM komentar INNER JOIN customer ON komentar.id_customer = customer.id_customer ORDER BY id_komentar");
 
 
 ?>
