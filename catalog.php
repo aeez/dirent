@@ -15,7 +15,7 @@ $mobil = query("SELECT * FROM mobil");
     <link rel="stylesheet" href="./app/assets/css/bootstrap/css/bootstrap.min.css">
     <!-- css -->
     <link rel="stylesheet" href="./app/assets/css/footer2.css" />
-    <link rel="stylesheet" href="./app/assets/css/newcatalog.css" />
+    <link rel="stylesheet" href="./app/assets/css/catalog.css" />
   </head>
   <body>
 <?php include ('./navbar.php'); ?>
@@ -80,7 +80,7 @@ $mobil = query("SELECT * FROM mobil");
                     <div class="row">
                       <div class="col-12 col-lg-6"></div>
                       <div class="col-12 col-lg-6 text-end">
-                        <button class="btn btn-sewa px-4">Sewa Mobil</button>
+                        <a href="" class="btn btn-sewa px-4">Sewa Mobil</a>
                       </div>
                     </div>
                   </div>

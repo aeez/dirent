@@ -39,14 +39,14 @@
   font-size: smaller;
 }
 
-#catalog .catalog-card .card-btn button {
+#catalog .catalog-card .card-btn a {
   background-color: #272343;
   color: #fff;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
 }
 
-#catalog .catalog-card .card-btn button:hover {
+#catalog .catalog-card .card-btn a:hover {
   background-color: #ffd803;
   color: #272343;
 }
