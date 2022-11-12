@@ -1,4 +1,4 @@
-<?php 
+<?php
 // include('./config/conn.php');
 include('./config/functions/customer/functionKomentar.php');
 
@@ -254,7 +254,7 @@ $komentar = query("SELECT * FROM komentar INNER JOIN customer ON komentar.id_cus
           </div>
 
           <!-- tombol tambah komentar -->
-          
+
           <?php if (isset($_SESSION['login'])) : ?>
           <div class="button-modal">
             <button type="button" class="btn d-flex m-auto mb-4 px-4 py-2" data-bs-toggle="modal" data-bs-target="#exampleModal">Berikan ulasan Anda</button>
@@ -326,8 +326,7 @@ $komentar = query("SELECT * FROM komentar INNER JOIN customer ON komentar.id_cus
     <script src="app/assets/js/swiper.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- js end -->
-
-    <?php 
+    <?php
     if (isset($_POST['submit'])) {
 
       if (tambah($_POST) > 0) {
@@ -337,7 +336,8 @@ $komentar = query("SELECT * FROM komentar INNER JOIN customer ON komentar.id_cus
                   'Sukses!',
                   'Terima kasih sudah memberikan ulasan!',
                   'success'
-                )
+                ).then(()=> {
+                    document.location.href = 'index.php'});
               </script>
           ";
       } else {
@@ -349,7 +349,7 @@ $komentar = query("SELECT * FROM komentar INNER JOIN customer ON komentar.id_cus
           ";
       }
     }
-    
+
     ?>
   </body>
 </html>

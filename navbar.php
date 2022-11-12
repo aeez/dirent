@@ -29,12 +29,24 @@
                 <a class="nav-link" href="booking.php">BOOKING</a>
               </li>
             </ul>
-            <div class="btn-login">
+            <div class="btn-login dropdown">
               <?php if (isset($_SESSION['login'])) : ?>
-                <a href="logout.php" class="btn px-4 py-2">Hi, <?= $_SESSION['nama_lengkap'] ?></a>
+                <a href="#"
+                class="btn px-4 py-2 dropdown-toggle"
+                role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false"
+                >Hi, <?= $_SESSION['nama_lengkap'] ?></a>
               <?php else : ?>
                 <a href="login.php" class="btn px-4 py-2">SIGN IN / UP</a>
               <?php endif; ?>
+                <div class="dropdown-menu
+                dropdown-menu-dark
+                dropdown-menu-lg-end"
+                aria-labelledby="dropdownMenuButton2">
+                    <a href="logout.php" class="dropdown-item">
+                        <i class="bi bi-box-arrow-right me-3"></i>
+                        Logout
+                    </a>
+                </div>
             </div>
           </div>
         </div>
