@@ -21,13 +21,13 @@
 }
 
 #booking .booking-card form .btn-kirim {
-  background-color: #fff;
+  background-color: #ffd803;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
 }
 
 #booking .booking-card form .btn-kirim:hover {
-  background-color: #ffd803;
+  background-color: #fff;
 }
 
 #booking .syarat-card {

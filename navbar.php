@@ -26,7 +26,7 @@
                 <a class="nav-link" href="catalog.php">CATALOG</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="booking.php">BOOKING</a>
+                <a class="nav-link" href="pemesanan.php">BOOKING</a>
               </li>
             </ul>
             <div class="btn-login dropdown">

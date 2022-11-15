@@ -1,6 +1,36 @@
 <?php 
 
-include('./config/conn.php');
+include('./config/functions/customer/functionPemesanan.php');
+
+$dataMobil = query("SELECT * FROM mobil");
+
+
+if (isset($_POST['submit'])) {
+  if (isset($_SESSION['login'])) {
+    if (tambah($_POST) > 0) {
+        echo "
+            <script>
+                alert('Data berhasil ditambah!');
+                document.location.href = 'index.php';
+            </script>
+        ";
+    } else {
+        echo "
+            <script>
+                alert('Data gagal ditambah!');
+                document.location.href = 'pemesanan.php';
+            </script>
+        ";
+    }
+  }else{
+    echo "
+      <script>
+          alert('Anda belum login!');
+          document.location.href = 'pemesanan.php';
+      </script>
+    ";
+  }
+}
 ?>
 
 <!DOCTYPE html>
@@ -20,7 +50,7 @@ include('./config/conn.php');
     />
     <!-- css -->
     <link rel="stylesheet" href="./app/assets/css/footer2.css" />
-    <link rel="stylesheet" href="./app/assets/css/booking.css" />
+    <link rel="stylesheet" href="./app/assets/css/pemesanan.css" />
   </head>
   <body>
 <?php include ('./navbar.php'); ?>
@@ -42,13 +72,15 @@ include('./config/conn.php');
                     <h2 class="text-center fw-bold">BOOKING FORM</h2>
                   </div>
                   <div class="card-form mt-5">
-                    <form action="">
+                    <form action="" method="post">
+                      <input type="hidden" name="id_customer" value="<?= $_SESSION['id_customer']; ?>">
                       <div class="mb-3">
                         <label for="nama" class="form-label">Nama</label>
                         <input
                           type="text"
                           class="form-control"
                           id="nama"
+                          name="nama"
                           placeholder="Nama"
                           required
                         />
@@ -59,35 +91,38 @@ include('./config/conn.php');
                           type="text"
                           class="form-control"
                           id="alamat"
+                          name="alamat"
                           placeholder="Alamat"
                           required
                         />
                       </div>
                       <div class="mb-3">
-                        <label for="telepon" class="form-label"
-                          >No. Telepon</label
+                        <label for="no_telp" class="form-label"
+                          >Nomor Telepon</label
                         >
                         <input
-                          type="number"
+                          type="text"
                           class="form-control"
-                          id="telepon"
-                          placeholder="No. Telepon"
+                          id="no_telp"
+                          name="no_telp"
+                          placeholder="Nomor Telepon"
                           required
                         />
                       </div>
                       <div class="mb-3">
-                        <label for="mobil" class="form-label">Nama Mobil</label>
+                        <label for="mobil" class="form-label">Jenis Mobil</label>
                         <select
-                          class="form-select"
-                          aria-label="Default select example"
+                          class="form-select" id="id_mobil" name="id_mobil"
                         >
-                          <option selected>Pilih Mobil</option>
-                          <option value="1">Avanza</option>
-                          <option value="2">Innova</option>
+                          <option>Pilih Mobil</option>
+                          <?php foreach ($dataMobil as $mobil) : ?>
+                          <option value="<?= $mobil['id_mobil']  ?>"><?= $mobil['nama_mobil'] ?></option>
+                          <?php endforeach ?>
+                          <!-- <option value="2">Innova</option>
                           <option value="3">Alphard</option>
                           <option value="4">Camry</option>
                           <option value="5">Pajero Sport</option>
-                          <option value="6">Fortuner</option>
+                          <option value="6">Fortuner</option> -->
                         </select>
                       </div>
                       <div class="mb-3">
@@ -95,9 +130,9 @@ include('./config/conn.php');
                           >Dari Tanggal</label
                         >
                         <input
-                          type="text"
+                          type="date"
                           class="form-control"
-                          id="dateFrom"
+                          name="dari_tanggal"
                           placeholder="Pilih Tanggal"
                         />
                       </div>
@@ -106,26 +141,53 @@ include('./config/conn.php');
                           >Sampai Tanggal</label
                         >
                         <input
-                          type="text"
+                          type="date"
                           class="form-control"
-                          id="dateTo"
+                          name="sampai_tanggal"
                           placeholder="Pilih Tanggal"
                         />
                       </div>
-                      <div class="mb-4">
-                        <label for="kotaTujuan" class="form-label"
-                          >Kota Tujuan</label
+                      <div class="mb-3">
+                        <label for="jumlah_hari" class="form-label"
+                          >Jumlah Hari</label
                         >
                         <input
                           type="text"
                           class="form-control"
-                          id="kotaTujuan"
-                          placeholder="Kota Tujuan"
+                          id="jumlah_hari"
+                          name="jumlah_hari"
+                          placeholder="Jumlah Hari"
+                          required
+                        />
+                      </div>
+                      <div class="mb-3">
+                        <label for="tujuan" class="form-label"
+                          >Tujuan</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="tujuan"
+                          name="tujuan"
+                          placeholder="Contoh: Dalam/Luar Kota (Nama Kota)"
+                          required
+                        />
+                      </div>
+                      <div class="mb-4">
+                        <label for="link_drive" class="form-label"
+                          >Link Bukti Persyaratan</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="link_drive"
+                          name="link_drive"
+                          placeholder="Link Google Drive"
                           required
                         />
                       </div>
                       <div class="mb-2 text-end">
-                        <button type="sumbit" class="btn btn-kirim px-5">
+                        <button type="sumbit" name="submit" class="btn btn-kirim px-5">
                           Kirim
                         </button>
                       </div>
@@ -143,9 +205,7 @@ include('./config/conn.php');
                     <div class="mb-3">
                       <h5>PERSYARATAN PERORANGAN</h5>
                       <ul>
-                        <li>Fotocopy SIM</li>
-                        <li>Fotocopy KTP</li>
-                        <li>Fotocopy KK</li>
+                        <li>Foto SIM, KTP, dan KK (dimasukkan dalam google drive)</li>
                         <li>Memiliki Penjamin</li>
                         <li>Bersedia untuk kami survey tempat tinggal Anda</li>
                       </ul>

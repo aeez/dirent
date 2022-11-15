@@ -1,21 +1,6 @@
 <?php
 include('./config/functions/customer/functionAuth.php');
 
-if(isset($_COOKIE['id']) && isset($_COOKIE['key'])){
-    $id = $_COOKIE['id'];
-    $key = $_COOKIE['key'];
-
-    // ambil username berdasarkan id
-    $result = mysqli_query($conn, "SELECT email FROM customer WHERE id_customer = $id");
-    $row = mysqli_fetch_assoc($result);
-
-    // cek cookie dan email
-    if($key === hash('sha256', $row['email'])){
-        $_SESSION['login'] = true;
-    }
-
-}
-
 if (isset($_SESSION['login']) && (isset($_SESSION['level']) == 'customer')) {
     header('location:index.php');
 }
@@ -45,13 +30,6 @@ if (isset($_POST['login'])) {
             $_SESSION['nama_lengkap'] = $row['nama_lengkap'];
             $_SESSION['email'] = $row['email'];
             $_SESSION['level'] = $row['level'];
-
-            // cek remember me
-            if(isset($_POST['remember'])){
-                // buat cookie
-                setcookie('id', $row['id_customer'], time()+60);
-                setcookie('key', hash('sha256', $row['email']), time()+60);
-            }
             
             header('location: index.php');
             exit;
@@ -133,12 +111,6 @@ if (isset($_POST['login'])) {
                                     placeholder="Password"
                                     required
                                 />
-                            </div>
-                            <div class="mb-4">
-                                <input class="form-check-input" type="checkbox" name="remember" id="remember">
-                                <label class="form-check-label" for="flexCheckDefault">
-                                    Remember Me
-                                </label>
                             </div>
                             <div class="register-wrapper text-center">
                                 <p>Dont have an account ? <a href="register.php">Sign Up</a></p>
