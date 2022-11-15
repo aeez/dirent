@@ -1,22 +1,22 @@
 <?php
-include('../config/functions/functionCustomer.php');
-$customer = query("SELECT * FROM customer");
+include('../config/functions/functionMobil.php');
+$mobil = query("SELECT * FROM mobil");
 $awalData = 0;
 $jumlahDataPerhalaman = 5;
-$jumlahData = count(query("SELECT * FROM customer"));
+$jumlahData = count(query("SELECT * FROM mobil"));
 $jumlahHalaman = ceil($jumlahData / $jumlahDataPerhalaman);
 $halamanAktif = (isset($_GET['halaman']) ? $_GET['halaman'] : 1);
 
 $awalData = ($jumlahDataPerhalaman * $halamanAktif) - $jumlahDataPerhalaman;
-$customer = query("SELECT * FROM customer Limit $awalData,$jumlahDataPerhalaman");
+$petugas = query("SELECT * FROM mobil Limit $awalData,$jumlahDataPerhalaman");
 
 if (isset($_GET['cari'])) {
     $keyword = $_GET["keyword"];
-    $jumlahData = count(query("SELECT * FROM customer Where nama_lengkap LIKE '%$keyword%' OR nik LIKE '%$keyword%' OR email LIKE '%$keyword%'"));
+    $jumlahData = count(query("SELECT * FROM mobil Where nama_mobil LIKE '%$keyword%' OR tahun_mobil LIKE '%$keyword%'"));
     $jumlahHalaman = ceil($jumlahData / $jumlahDataPerhalaman);
     $halamanAktif = (isset($_GET['halaman']) ? $_GET['halaman'] : 1);
     $awalData = ($jumlahDataPerhalaman * $halamanAktif) - $jumlahDataPerhalaman;
-    $customer = cari($_GET["keyword"], $awalData, $jumlahDataPerhalaman);
+    $mobil = cari($_GET["keyword"], $awalData, $jumlahDataPerhalaman);
 }
 ?>
 
@@ -49,9 +49,10 @@ if (isset($_GET['cari'])) {
                 <!-- Container Fluid-->
                 <div class="container-fluid" id="container-wrapper">
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Manajemen Customer</h1>
-
+                        <h1 class="h3 mb-0 text-gray-800">Manajemen Mobil</h1>
                     </div>
+
+
 
                     <!--Row-->
                     <div class="row">
@@ -59,40 +60,44 @@ if (isset($_GET['cari'])) {
                             <!-- Simple Tables -->
                             <div class="card">
                                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <a href="./customer_tambah.php" class="btn btn-sm btn-primary">Tambah Customer</a>
+                                    <a href="./mobil_tambah.php" class="btn btn-sm btn-primary">Tambah Mobil</a>
                                     <form action="" method="GET">
                                         <div class="input-group">
-                                            <input type="text" class="form-control form-control-sm" placeholder="Cari" name="keyword">
+                                            <input type="text" class="form-control form-control-sm" placeholder="Cari" name="keyword" id="keyword">
                                             <div class="input-group-btn">
                                                 <button class="btn btn-sm btn-primary" name="cari"><i class="fas fa-search"></i></button>
                                             </div>
                                         </div>
                                     </form>
                                 </div>
-
                                 <div class="table-responsive">
-                                    <table class="table align-items-center table-flush text-center w-100">
+                                    <table class="table align-items-center table-flush text-center">
                                         <thead class="thead-light">
                                             <tr>
                                                 <th>No</th>
-                                                <th>NIK</th>
-                                                <th>Nama</th>
+                                                <th>Gambar</th>
+                                                <th>Nama Mobil</th>
+                                                <th>Tahun Mobil</th>
+                                                <th>Stok</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <?php $no = 1; ?>
-                                            <?php foreach ($customer as $dataCustomer) : ?>
+                                            <?php foreach ($mobil as $dataMobil) : ?>
                                                 <tr>
                                                     <td><?= $no++; ?></td>
-                                                    <td><?= $dataCustomer['nik']; ?></td>
-                                                    <td><?= $dataCustomer['nama_lengkap']; ?></td>
-                                                    <td><a href="customer_detail.php?id_customer=<?= $dataCustomer['id_customer']; ?>" class="btn btn-sm btn-info">Detail</a></td>
+                                                    <td><img src="../app/img/<?= $dataMobil['gambar']; ?>" alt="" width="100" height="100" class="img-thumbnail"></td>
+                                                    <td><?= $dataMobil['nama_mobil']; ?></td>
+                                                    <td><?= $dataMobil['tahun_mobil']; ?></td>
+                                                    <td><?= $dataMobil['stok']; ?></td>
+                                                    <td><a href="mobil_detail.php?id_mobil=<?= $dataMobil['id_mobil']; ?>" class="btn btn-sm btn-info">Detail</a></td>
                                                 </tr>
                                             <?php endforeach; ?>
                                         </tbody>
                                     </table>
                                 </div>
+                                <hr>
                                 <div class="card-footer text-right">
                                     <nav class="d-inline-block">
                                         <ul class="pagination mb-0">
@@ -114,7 +119,9 @@ if (isset($_GET['cari'])) {
                                                 <?php if ($halamanAktif < $jumlahHalaman) : ?>
                                                     <a class="page-link" href="?halaman=<?= $halamanAktif + 1; ?>&keyword=<?php echo $_GET['keyword'] ?>&cari="><i class="fas fa-chevron-right"></i></a>
                                                 <?php endif; ?>
+
                                             <?php } else { ?>
+
                                                 <?php if ($halamanAktif > 1) : ?>
                                                     <a class="page-link" href="?halaman=<?= $halamanAktif - 1; ?>" tabindex="-1"><i class="fas fa-chevron-left"></i></a>
                                                 <?php endif; ?>
@@ -136,7 +143,6 @@ if (isset($_GET['cari'])) {
 
                                         </ul>
                                     </nav>
-
                                 </div>
                             </div>
                         </div>

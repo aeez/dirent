@@ -1,14 +1,22 @@
+<?php
+
+include('./config/functions/customer/functionMobil.php');
+
+$mobil = query("SELECT * FROM mobil");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Home Page</title>
+    <title>Catalog DIRENT</title>
     <?php include('./app/layouts/font.php');?>
     <link rel="stylesheet" href="./app/assets/css/bootstrap/css/bootstrap.min.css">
+    <link rel="shortcut icon" href="app/assets/img/logodirent.png" type="image/x-icon">
     <!-- css -->
     <link rel="stylesheet" href="./app/assets/css/footer2.css" />
-    <link rel="stylesheet" href="./app/assets/css/newcatalog.css" />
+    <link rel="stylesheet" href="./app/assets/css/catalog.css" />
   </head>
   <body>
 <?php include ('./navbar.php'); ?>
@@ -27,19 +35,19 @@
           </div>
           <div class="catalog-card my-3">
             <div class="row row-card justify-content-center">
-              <!-- avanza -->
+              <?php foreach ($mobil as $dataMobil) : ?>
               <div class="col-10 col-lg-4 mb-5 col-card">
                 <div class="card-car p-3">
                   <div class="card-image pt-1">
                     <img
-                      src="app/assets/img/mobil/avanza.png"
+                      src="./app/img/<?= $dataMobil['gambar']; ?>"
                       alt=""
                       class="w-100"
                     />
                   </div>
                   <div class="card-title fw-bold my-2 ms-3">
-                    <h6 class="fw-bold">Avanza (2015)</h6>
-                    <p>Rp. 350.000/hari</p>
+                    <h6 class="fw-bold"><?= $dataMobil["nama_mobil"] ?> (<?= $dataMobil["tahun_mobil"] ?>)</h6>
+                    <p>Rp. <?= number_format($dataMobil["harga"], 0, ".", "."); ?>/hari</p>
                   </div>
                   <div class="card-features mt-2">
                     <div class="row justify-content-between">
@@ -47,7 +55,7 @@
                         <button class="btn mb-2">
                           <i class="bi bi-person-circle fs-4"></i>
                         </button>
-                        <p class="text-muted">6 Seats</p>
+                        <p class="text-muted"><?= $dataMobil["kursi"] ?> Kursi</p>
                       </div>
                       <div class="col-3 text-center">
                         <button class="btn mb-2">
@@ -59,13 +67,13 @@
                         <button class="btn mb-2">
                           <i class="bi bi-joystick fs-4"></i>
                         </button>
-                        <p class="text-muted">Matic</p>
+                        <p class="text-muted"><?= $dataMobil["transmisi"] ?></p>
                       </div>
                       <div class="col-3 text-center">
                         <button class="btn mb-2">
                           <i class="bi bi-fuel-pump-fill fs-4"></i>
                         </button>
-                        <p class="text-muted">Pertamax</p>
+                        <p class="text-muted"><?= $dataMobil["bensin"] ?></p>
                       </div>
                     </div>
                   </div>
@@ -73,14 +81,15 @@
                     <div class="row">
                       <div class="col-12 col-lg-6"></div>
                       <div class="col-12 col-lg-6 text-end">
-                        <button class="btn btn-sewa px-4">Sewa Mobil</button>
+                        <a href="booking.php" class="btn btn-sewa px-4">Sewa Mobil</a>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
+              <?php endforeach; ?>
               <!-- Innova -->
-              <div class="col-10 col-lg-4 mb-5 col-card">
+              <!-- <div class="col-10 col-lg-4 mb-5 col-card">
                 <div class="card-car p-3">
                   <div class="card-image pt-1">
                     <img
@@ -130,9 +139,9 @@
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> -->
               <!-- Alphard -->
-              <div class="col-10 col-lg-4 mb-5 col-card">
+              <!-- <div class="col-10 col-lg-4 mb-5 col-card">
                 <div class="card-car p-3">
                   <div class="card-image pt-1">
                     <img
@@ -182,9 +191,9 @@
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> -->
               <!-- Camry -->
-              <div class="col-10 col-lg-4 mb-5 col-card">
+              <!-- <div class="col-10 col-lg-4 mb-5 col-card">
                 <div class="card-car p-3">
                   <div class="card-image pt-1">
                     <img
@@ -234,9 +243,9 @@
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> -->
               <!-- Pajero Sport -->
-              <div class="col-10 col-lg-4 mb-5 col-card">
+              <!-- <div class="col-10 col-lg-4 mb-5 col-card">
                 <div class="card-car p-3">
                   <div class="card-image pt-1">
                     <img
@@ -286,9 +295,9 @@
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> -->
               <!-- Fortuner -->
-              <div class="col-10 col-lg-4 mb-5 col-card">
+              <!-- <div class="col-10 col-lg-4 mb-5 col-card">
                 <div class="card-car p-3">
                   <div class="card-image pt-1">
                     <img
@@ -338,7 +347,7 @@
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> -->
             </div>
           </div>
         </div>

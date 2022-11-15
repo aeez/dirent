@@ -13,6 +13,7 @@ main {
 .home-page .wrapper-home-page .row .caption h1 {
   color: #272343;
   font-family: "Rubik", sans-serif;
+  font-size: 4rem;
 }
 .home-page .wrapper-home-page .row .caption h1 span {
   color: #ffd803 !important;
@@ -64,6 +65,21 @@ main {
 .review {
   padding-bottom: 100px;
 }
+
+.review .button-modal button {
+  background-color: #ffd803 !important;
+  color: #272343 !important;
+}
+
+.review .modal .modal-footer .send {
+  background-color: #272343;
+  color: white;
+}
+
+.review .modal .modal-footer .close {
+  border: 1px solid #272343;
+}
+
 .review .container .title h1 {
   font-family: "Rubik", sans-serif;
 }

@@ -5,7 +5,7 @@
       </div>
       <nav class="navbar navbar-expand-lg">
         <div class="container">
-          <a class="navbar-brand fst-italic fs-2" href="homepage.php">DIRENT</a>
+          <a class="navbar-brand fst-italic fs-2" href="index.php">DIRENT</a>
           <button
             class="navbar-toggler"
             type="button"
@@ -26,11 +26,27 @@
                 <a class="nav-link" href="catalog.php">CATALOG</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="booking.php">BOOKING</a>
+                <a class="nav-link" href="pemesanan.php">BOOKING</a>
               </li>
             </ul>
-            <div class="btn-login">
-              <a href="login.php" class="btn px-4 py-2">SIGN IN / UP</a>
+            <div class="btn-login dropdown">
+              <?php if (isset($_SESSION['login'])) : ?>
+                <a href="#"
+                class="btn px-4 py-2 dropdown-toggle"
+                role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false"
+                >Hi, <?= $_SESSION['nama_lengkap'] ?></a>
+              <?php else : ?>
+                <a href="login.php" class="btn px-4 py-2">SIGN IN / UP</a>
+              <?php endif; ?>
+                <div class="dropdown-menu
+                dropdown-menu-dark
+                dropdown-menu-lg-end"
+                aria-labelledby="dropdownMenuButton2">
+                    <a href="logout.php" class="dropdown-item">
+                        <i class="bi bi-box-arrow-right me-3"></i>
+                        Logout
+                    </a>
+                </div>
             </div>
           </div>
         </div>

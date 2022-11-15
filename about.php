@@ -1,18 +1,24 @@
+<?php
+
+include('./config/conn.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Bootstrap demo</title>
+    <title>About DIRENT</title>
     <?php include('./app/layouts/font.php');?>
     <link rel="stylesheet" href="./app/assets/css/bootstrap/css/bootstrap.min.css">
+    <link rel="shortcut icon" href="app/assets/img/logodirent.png" type="image/x-icon">
     <!-- css -->
     <link rel="stylesheet" href="./app/assets/css/footer2.css" />
     <link rel="stylesheet" href="./app/assets/css/about.css" />
   </head>
   <body>
 <?php include ('./navbar.php'); ?>
-    
+
 <main class="pt-5">
       <!-- about page -->
       <section class="container about py-5">

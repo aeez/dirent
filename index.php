@@ -1,11 +1,22 @@
+<?php
+// include('./config/conn.php');
+include('./config/functions/customer/functionKomentar.php');
+
+
+$komentar = query("SELECT * FROM komentar INNER JOIN customer ON komentar.id_customer = customer.id_customer ORDER BY id_komentar");
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Home Page</title>
+    <title>DIRENT</title>
     <?php include('./app/layouts/font.php');?>
     <link rel="stylesheet" href="./app/assets/css/bootstrap/css/bootstrap.min.css">
+    <link rel="shortcut icon" href="app/assets/img/logodirent.png" type="image/x-icon">
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
@@ -242,63 +253,54 @@
           <div class="row title mb-5 mb-lg-5 text-center">
             <h1 class="fw-semibold">ULASAN PELANGGAN</h1>
           </div>
-          <div class="row give-review mb-5 py-3 p-lg-3 justify-content-center">
-            <div class="col-10 col-lg-12 form-wrapper">
-              <h4 class="mb-4">Beri Ulasan</h4>
-              <div class="review-form mb-3">
-                <label for="exampleInputEmail1" class="form-label">Nama</label>
-                <input
-                  type="text"
-                  class="form-control mb-2"
-                  id="exampleInputEmail1"
-                  aria-describedby="emailHelp"
-                />
-                <label for="floatingTextarea2" class="form-label">Ulasan</label>
-                <textarea
-                  class="form-control"
-                  id="floatingTextarea2"
-                  style="height: 100px"
-                ></textarea>
+
+          <!-- tombol tambah komentar -->
+
+          <?php if (isset($_SESSION['login'])) : ?>
+          <div class="button-modal">
+            <button type="button" class="btn d-flex m-auto mb-4 px-4 py-2" data-bs-toggle="modal" data-bs-target="#exampleModal">Berikan ulasan Anda</button>
+          </div>
+
+          <!-- form -->
+
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header d-flex justify-content-center">
+                  <h1 class="modal-title fs-5 " id="exampleModalLabel">Beri Ulasan</h1>
+                </div>
+                <div class="modal-body">
+                  <form action="" method="POST" id="form-input">
+                    <input type="hidden" name="id_komentar" id="id_komentar" value="0" />
+                    <input type="hidden" name="id_customer" value="<?= $_SESSION['id_customer']; ?>">
+                    <div class="mb-3">
+                      <label for="ulasan" class="form-label">Ulasan</label>
+                      <textarea class="form-control" id="komentar" rows="7" cols="10" name="komentar" style="resize: none;"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn close" data-bs-dismiss="modal">Tutup</button>
+                    <button type="submit" name="submit" class="btn send" id="kirim">Kirim</button>
+                  </form>
+                </div>
               </div>
-              <button class="btn border py-2 px-5">Kirim</button>
             </div>
           </div>
+          <?php endif; ?>
+
           <div class="row card-swipper">
             <div class="swiper mySwiper">
               <div class="swiper-wrapper">
+                <?php foreach ($komentar as $dataKomentar) : ?>
                 <div class="swiper-slide">
-                  <div class="swiper-content p-3">
-                    <h5 class="fw-bolder m-0">Cathrine</h5>
+                  <div class="swiper-content p-3 w-100">
+                    <h5 class="fw-bolder m-0"><?= $dataKomentar['nama_lengkap']; ?></h5>
                     <p class="swiper-title">Customer</p>
-                    <p class="swiper-review">
-                      Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                      Laudantium consequatur dolor non placeat, ea veritatis
-                      tempore adipisci at unde, nostrum soluta labore rerum.
-                      Ipsum, ex.
-                    </p>
+                    <p class="swiper-review"><?= $dataKomentar['komentar']; ?></p>
                   </div>
                 </div>
-                <div class="swiper-slide">
-                  <div class="swiper-content p-3">
-                    <h5 class="fw-bolder m-0">Jacob</h5>
-                    <p class="swiper-title">Customer</p>
-                    <p class="swiper-review">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Aliquam consequuntur labore maiores.
-                    </p>
-                  </div>
-                </div>
-                <div class="swiper-slide">
-                  <div class="swiper-content p-3">
-                    <h5 class="fw-bolder m-0">Akram</h5>
-                    <p class="swiper-title">Customer</p>
-                    <p class="swiper-review">
-                      Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                      Perspiciatis enim voluptatum, corrupti recusandae
-                      laudantium dolorum sed veritatis.
-                    </p>
-                  </div>
-                </div>
+                <?php endforeach; ?>
               </div>
               <!-- button -->
               <div class="swiper-button-next">
@@ -323,6 +325,32 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     <script src="app/assets/js/index.js"></script>
     <script src="app/assets/js/swiper.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- js end -->
+    <?php
+    if (isset($_POST['submit'])) {
+
+      if (tambah($_POST) > 0) {
+          echo "
+              <script>
+                Swal.fire(
+                  'Sukses!',
+                  'Terima kasih sudah memberikan ulasan!',
+                  'success'
+                ).then(()=> {
+                    document.location.href = 'index.php'});
+              </script>
+          ";
+      } else {
+          echo "
+              <script>
+                  alert('Data gagal ditambah!');
+                  document.location.href = 'index.php';
+              </script>
+          ";
+      }
+    }
+
+    ?>
   </body>
 </html>

@@ -1,48 +1,49 @@
 <?php
-include('./config/functions/functionAuth.php');
+include('./config/functions/customer/functionAuth.php');
 
-if (isset($_SESSION['login']) && (isset($_SESSION['level']) == 'admin') || (isset($_SESSION['level']) == 'petugas')) {
-    header('location: dashboard.php');
-} else if (isset($_SESSION['login']) && (isset($_SESSION['level']) == 'siswa')) {
-    header('location:home.php');
+if (isset($_SESSION['login']) && (isset($_SESSION['level']) == 'customer')) {
+    header('location:index.php');
 }
 
 if (isset($_POST['login'])) {
 
-    $username = $_POST['username'];
+    $email = $_POST['email'];
     $password = $_POST['password'];
 
-    $petugasInfo = mysqli_query($conn, "SELECT * FROM petugas WHERE username = '$username'");
-    // $siswaInfo = mysqli_query($conn, "SELECT * FROM siswa WHERE username = '$username'");
+    // $petugasInfo = mysqli_query($conn, "SELECT * FROM petugas WHERE username = '$username'");
+    $customerInfo = mysqli_query($conn, "SELECT * FROM customer WHERE email = '$email'");
 
-    if (mysqli_num_rows($petugasInfo) === 0) {
+    if (mysqli_num_rows($customerInfo) === 0) {
         $error4 = true;
-    } //else if (mysqli_num_rows($siswaInfo) === 0) {
+    } //else if (mysqli_num_rows($customerInfo) === 0) {
         //$error4 = true;
     //}
 
-    if (mysqli_num_rows($petugasInfo) === 1) {
+    if (mysqli_num_rows($customerInfo) === 1) {
 
-        $row = mysqli_fetch_assoc($petugasInfo);
+        $row = mysqli_fetch_assoc($customerInfo);
 
         if (password_verify($password, $row['password'])) {
             // session set
             $_SESSION['login'] = true;
-            $_SESSION['nama'] = $row['nama_petugas'];
+            $_SESSION['id_customer'] = $row['id_customer'];
+            $_SESSION['nama_lengkap'] = $row['nama_lengkap'];
+            $_SESSION['email'] = $row['email'];
             $_SESSION['level'] = $row['level'];
-            header('location: dashboard.php');
+            
+            header('location: index.php');
             exit;
         }
 
         $error = true;
-    } //else if (mysqli_num_rows($siswaInfo) === 1) {
+    } //else if (mysqli_num_rows($customerInfo) === 1) {
 
-    //     $row = mysqli_fetch_assoc($siswaInfo);
+    //     $row = mysqli_fetch_assoc($customerInfo);
 
     //     if (password_verify($password, $row['password'])) {
     //         // sessin set
     //         $_SESSION['login'] = true;
-    //         $_SESSION['nama'] = $row['nama_siswa'];
+    //         $_SESSION['nama'] = $row['nama_customer'];
     //         $_SESSION['level'] = $row['level'];
     //         header('location: home.php');
     //         exit;
@@ -59,9 +60,10 @@ if (isset($_POST['login'])) {
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Login</title>
+    <title>Login DIRENT</title>
     <?php include('./app/layouts/font.php');?>
     <link rel="stylesheet" href="./app/assets/css/bootstrap/css/bootstrap.min.css">
+    <link rel="shortcut icon" href="app/assets/img/logodirent.png" type="image/x-icon">
     <!-- css -->
     <link rel="stylesheet" href="./app/assets/css/footer2.css" />
     <link rel="stylesheet" href="./app/assets/css/newlogin.css" />
@@ -77,7 +79,7 @@ if (isset($_POST['login'])) {
                     <div class="form-logo text-center my-5">
                         <h1 class="fw-bold fst-italic">DIRENT</h1>
                     </div>
-                    
+
                     <?php if (isset($error)) { ?>
                         <div class="alert alert-danger alert-dismissible" role="alert">
                             Gagal, mohon periksa lagi username dan password Anda!
@@ -93,15 +95,15 @@ if (isset($_POST['login'])) {
                         <form action="" method="POST">
                             <div class="mb-3">
                                 <input
-                                    type="text"
+                                    type="email"
                                     class="form-control"
-                                    name="username"
-                                    id="username"
-                                    placeholder="Username"
+                                    name="email"
+                                    id="email"
+                                    placeholder="Email"
                                     required
                                 />
                             </div>
-                            <div class="mb-4">
+                            <div class="mb-3">
                                 <input
                                     type="password"
                                     class="form-control"

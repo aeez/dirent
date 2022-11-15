@@ -1,9 +1,9 @@
 <?php
-include('../config/functions/functionCustomer.php');
+include('../config/functions/functionMobil.php');
 
-$id = $_GET['id_customer'];
+$id = $_GET['id_mobil'];
 
-$dataCustomer = query("SELECT * FROM customer WHERE id_customer = $id")[0];
+$dataMobil = query("SELECT * FROM mobil WHERE id_mobil = $id")[0];
 
 if (isset($_POST['submit'])) {
 
@@ -11,14 +11,14 @@ if (isset($_POST['submit'])) {
         echo "
             <script>
                 alert('Data berhasil diubah!');
-                document.location.href = 'customer_tbl.php';
+                document.location.href = 'mobil_tbl.php';
             </script>
         ";
     } else {
         echo "
             <script>
                 alert('Data gagal diubah!');
-                document.location.href = 'customer_ubah.php';
+                document.location.href = 'mobil_ubah.php';
             </script>
         ";
     }
@@ -54,7 +54,7 @@ if (isset($_POST['submit'])) {
                 <!-- Container Fluid-->
                 <div class="container-fluid" id="container-wrapper">
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Manajemen Customer</h1>
+                        <h1 class="h3 mb-0 text-gray-800">Manajemen Mobil</h1>
                     </div>
 
                     <!--Row-->
@@ -65,46 +65,47 @@ if (isset($_POST['submit'])) {
                                 <!-- Form Basic -->
                                 <div class="card lg">
                                     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                        <h6 class="m-0 font-weight-bold text-primary">Ubah Customer</h6>
+                                        <h6 class="m-0 font-weight-bold text-primary">Ubah Mobil</h6>
                                     </div>
                                     <div class="card-body">
-                                        <form action="" method="POST">
-                                            <input type="hidden" name="id_customer" value="<?= $dataCustomer['id_customer']; ?>">
+                                        <form action="" method="POST" enctype="multipart/form-data">
+                                            <input type="hidden" name="id_mobil" value="<?= $dataMobil['id_mobil']; ?>">
+                                            <input type="hidden" name="gambarLama" value="<?= $dataMobil['gambar']; ?>">
                                             <div class="form-group">
-                                                <label for="nik">NIK</label>
-                                                <input type="number" class="form-control" id="nik" name="nik" value="<?= $dataCustomer['nik']; ?>" required>
+                                                <label for="gambar">Gambar</label>
+                                                <input type="file" class="form-control" id="gambar" name="gambar">
+                                                <img src="../app/img/<?= $dataMobil['gambar']; ?>" alt="" width="100" height="120" class="img-thumbnail">
                                             </div>
                                             <div class="form-group">
-                                                <label for="nama_Customer">Nama</label>
-                                                <input type="text" class="form-control" id="nama_lengkap" name="nama_lengkap" value="<?= $dataCustomer['nama_lengkap']; ?>" required>
+                                                <label for="nama_mobil">Nama Mobil</label>
+                                                <input type="text" class="form-control" id="nama_mobil" name="nama_mobil" value="<?= $dataMobil['nama_mobil']; ?>" required>
                                             </div>
                                             <div class="form-group">
-                                                <label for="alamat">Alamat</label>
-                                                <input type="text" class="form-control" id="alamat" name="alamat" value="<?= $dataCustomer['alamat']; ?>" required>
+                                                <label for="tahun_mobil">Tahun Mobil</label>
+                                                <input type="text" class="form-control" id="tahun_mobil" name="tahun_mobil" value="<?= $dataMobil['tahun_mobil']; ?>" required>
                                             </div>
                                             <div class="form-group">
-                                                <label for="no_telp">Nomor Telepon</label>
-                                                <input type="text" class="form-control" id="no_telp" name="no_telp" value="<?= $dataCustomer['no_telp']; ?>" required>
+                                                <label for="kursi">Kursi</label>
+                                                <input type="text" class="form-control" id="kursi" name="kursi" value="<?= $dataMobil['kursi']; ?>" required>
                                             </div>
                                             <div class="form-group">
-                                                <label for="kota">Kota</label>
-                                                <input type="text" class="form-control" id="kota" name="kota" value="<?= $dataCustomer['kota']; ?>" required>
+                                                <label for="transmisi">Transmisi</label>
+                                                <input type="text" class="form-control" id="transmisi" name="transmisi" value="<?= $dataMobil['transmisi']; ?>" required>
                                             </div>
                                             <div class="form-group">
-                                                <label for="kode_pos">Kode Pos</label>
-                                                <input type="number" class="form-control" id="kode_pos" name="kode_pos" value="<?= $dataCustomer['kode_pos']; ?>" required>
+                                                <label for="bensin">Bensin</label>
+                                                <input type="text" class="form-control" id="bensin" name="bensin" value="<?= $dataMobil['bensin']; ?>" required>
                                             </div>
                                             <div class="form-group">
-                                                <label for="email">Email</label>
-                                                <input type="email" class="form-control" id="email" name="email" value="<?= $dataCustomer['email']; ?>" required>
+                                                <label for="stok">Stok</label>
+                                                <input type="text" class="form-control" id="stok" name="stok" value="<?= $dataMobil['stok']; ?>" required>
                                             </div>
                                             <div class="form-group">
-                                                <label for="password">Password</label>
-                                                <input type="password" class="form-control" id="password" name="password" value="<?= $dataCustomer['password']; ?>" required>
+                                                <label for="harga">Harga</label>
+                                                <input type="text" class="form-control" id="harga" name="harga" value="<?= $dataMobil['harga']; ?>" required>
                                             </div>
-                                            <input type="hidden" name="created_at" value="<?= $dataCustomer['created_at']; ?>">
+                                            <input type="hidden" name="created_at" value="<?= $dataMobil['created_at']; ?>">
                                             <button type="submit" name="submit" class="btn btn-success">Ubah</button>
-                                            <a href="customer_detail.php?id_customer=<?= $dataCustomer['id_customer']; ?>" class="btn btn-outline-dark">Kembali</a></td>
                                         </form>
                                     </div>
                                 </div>

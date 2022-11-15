@@ -1,23 +1,24 @@
 <?php
-include('../config/functions/functionCustomer.php');
-$customer = query("SELECT * FROM customer");
+include('../config/functions/functionKomentar.php');
+$komentar = query("SELECT * FROM komentar INNER JOIN customer ON komentar.id_customer = customer.id_customer");
 $awalData = 0;
 $jumlahDataPerhalaman = 5;
-$jumlahData = count(query("SELECT * FROM customer"));
+$jumlahData = count(query("SELECT * FROM komentar"));
 $jumlahHalaman = ceil($jumlahData / $jumlahDataPerhalaman);
 $halamanAktif = (isset($_GET['halaman']) ? $_GET['halaman'] : 1);
 
 $awalData = ($jumlahDataPerhalaman * $halamanAktif) - $jumlahDataPerhalaman;
-$customer = query("SELECT * FROM customer Limit $awalData,$jumlahDataPerhalaman");
+$komentar = query("SELECT * FROM komentar INNER JOIN customer ON komentar.id_customer = customer.id_customer Limit $awalData,$jumlahDataPerhalaman");
 
 if (isset($_GET['cari'])) {
     $keyword = $_GET["keyword"];
-    $jumlahData = count(query("SELECT * FROM customer Where nama_lengkap LIKE '%$keyword%' OR nik LIKE '%$keyword%' OR email LIKE '%$keyword%'"));
+    $jumlahData = count(query("SELECT * FROM komentar INNER JOIN customer ON komentar.id_customer = customer.id_customer Where nama_lengkap LIKE '%$keyword%'"));
     $jumlahHalaman = ceil($jumlahData / $jumlahDataPerhalaman);
     $halamanAktif = (isset($_GET['halaman']) ? $_GET['halaman'] : 1);
     $awalData = ($jumlahDataPerhalaman * $halamanAktif) - $jumlahDataPerhalaman;
-    $customer = cari($_GET["keyword"], $awalData, $jumlahDataPerhalaman);
+    $komentar = cari($_GET["keyword"], $awalData, $jumlahDataPerhalaman);
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -49,8 +50,7 @@ if (isset($_GET['cari'])) {
                 <!-- Container Fluid-->
                 <div class="container-fluid" id="container-wrapper">
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Manajemen Customer</h1>
-
+                        <h1 class="h3 mb-0 text-gray-800">Manajemen komentar</h1>
                     </div>
 
                     <!--Row-->
@@ -58,8 +58,7 @@ if (isset($_GET['cari'])) {
                         <div class="col-lg-12 mb-4">
                             <!-- Simple Tables -->
                             <div class="card">
-                                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <a href="./customer_tambah.php" class="btn btn-sm btn-primary">Tambah Customer</a>
+                                <div class="card-header py-3 d-flex justify-content-end">
                                     <form action="" method="GET">
                                         <div class="input-group">
                                             <input type="text" class="form-control form-control-sm" placeholder="Cari" name="keyword">
@@ -69,25 +68,24 @@ if (isset($_GET['cari'])) {
                                         </div>
                                     </form>
                                 </div>
-
                                 <div class="table-responsive">
-                                    <table class="table align-items-center table-flush text-center w-100">
+                                    <table class="table align-items-center table-flush text-center">
                                         <thead class="thead-light">
                                             <tr>
                                                 <th>No</th>
-                                                <th>NIK</th>
                                                 <th>Nama</th>
+                                                <th>Komentar</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <?php $no = 1; ?>
-                                            <?php foreach ($customer as $dataCustomer) : ?>
+                                            <?php foreach ($komentar as $dataKomentar) : ?>
                                                 <tr>
-                                                    <td><?= $no++; ?></td>
-                                                    <td><?= $dataCustomer['nik']; ?></td>
-                                                    <td><?= $dataCustomer['nama_lengkap']; ?></td>
-                                                    <td><a href="customer_detail.php?id_customer=<?= $dataCustomer['id_customer']; ?>" class="btn btn-sm btn-info">Detail</a></td>
+                                                  <td><?= $no++; ?></td>
+                                                  <td><?= $dataKomentar['nama_lengkap']; ?></td>
+                                                  <td><?= $dataKomentar['komentar']; ?></td>
+                                                  <td><a href="komentar_detail.php?id_komentar=<?= $dataKomentar['id_komentar']; ?>" class="btn btn-sm btn-info">Detail</a>
                                                 </tr>
                                             <?php endforeach; ?>
                                         </tbody>
@@ -133,9 +131,9 @@ if (isset($_GET['cari'])) {
                                                     <a class="page-link" href="?halaman=<?= $halamanAktif + 1 ?>"><i class="fas fa-chevron-right"></i></a>
                                                 <?php endif; ?>
                                             <?php } ?>
-
                                         </ul>
                                     </nav>
+
 
                                 </div>
                             </div>
