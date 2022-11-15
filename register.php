@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 include('./config/functions/customer/functionCustomer.php');
 if (isset($_POST['submit'])) {
@@ -27,9 +27,10 @@ if (isset($_POST['submit'])) {
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Register</title>
+    <title>Register DIRENT</title>
     <?php include('./app/layouts/font.php');?>
     <link rel="stylesheet" href="./app/assets/css/bootstrap/css/bootstrap.min.css">
+    <link rel="shortcut icon" href="app/assets/img/logodirent.png" type="image/x-icon">
     <!-- css -->
     <link rel="stylesheet" href="./app/assets/css/footer2.css" />
     <link rel="stylesheet" href="./app/assets/css/register.css" />
@@ -41,26 +42,15 @@ if (isset($_POST['submit'])) {
       <section id="register">
         <div id="wrapper" class="container py-5">
           <div class="row justify-content-center mx-1 mt-5 m-lg-5">
-            <div class="col-12 col-lg-8 form-wrapper p-4 rounded">
+            <div class="col-12 col-lg-11 form-wrapper p-4 rounded">
               <div class="section-title text-center">
                 <h1 class="fst-italic fw-bold">DIRENT</h1>
               </div>
               <form action="" method="POST" class="mt-4">
-                <div class="row">
+                <div class="row justify-content-around">
                   <div class="col-lg-6">
-                    <div class="personal mt-4">
+                    <div class="personal mt-4 me-lg-5">
                       <h5 class="mb-3">INFORMASI DIRI</h5>
-                      <div class="mb-3">
-                        <label for="nik" class="form-label">NIK</label>
-                        <input
-                          type="number"
-                          class="form-control"
-                          id="nik"
-                          name="nik"
-                          placeholder="NIK"
-                          required
-                        />
-                      </div>
                       <div class="mb-3">
                         <label for="nama_lengkap" class="form-label"
                           >Nama Lengkap</label
@@ -71,6 +61,17 @@ if (isset($_POST['submit'])) {
                           id="nama"
                           name="nama_lengkap"
                           placeholder="Nama Lengkap"
+                          required
+                        />
+                      </div>
+                      <div class="mb-3">
+                        <label for="nik" class="form-label">NIK</label>
+                        <input
+                          type="number"
+                          class="form-control"
+                          id="nik"
+                          name="nik"
+                          placeholder="NIK"
                           required
                         />
                       </div>
@@ -129,7 +130,7 @@ if (isset($_POST['submit'])) {
                     </div>
                   </div>
                   <div class="col-lg-6">
-                    <div class="registrasi mt-4">
+                    <div class="registrasi mt-4 ms-lg-4">
                       <h5 class="mb-3">REGISTRASI</h5>
                       <div class="mb-3">
                         <label for="email" class="form-label">Email</label>
@@ -168,8 +169,8 @@ if (isset($_POST['submit'])) {
                         />
                       </div>
                       <div>
-                        <div class="row switchlogin">
-                          <div class="col-12">
+                        <div class="row switchlogin mt-lg-5">
+                          <div class="col-12 mt-lg-5">
                             <p class="text-muted">
                               Already have an account? Click here to
                               <span> <a href="login.php">Login</a></span>
