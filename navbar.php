@@ -23,10 +23,12 @@
                 <a class="nav-link" aria-current="page" href="about.php">ABOUT US</a>
               </li>
               <li class="nav-item mx-0 mx-lg-4">
-                <a class="nav-link" href="catalog.php">CATALOG</a>
+                <a class="nav-link" href="catalogue.php">CATALOG</a>
               </li>
               <li class="nav-item">
+                <?php if (isset($_SESSION['login'])) : ?>
                 <a class="nav-link" href="pemesanan.php">BOOKING</a>
+                <?php endif; ?>
               </li>
             </ul>
             <div class="btn-login dropdown">
