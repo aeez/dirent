@@ -4,33 +4,6 @@ include('./config/functions/customer/functionPemesanan.php');
 
 $dataMobil = query("SELECT * FROM mobil");
 
-
-if (isset($_POST['submit'])) {
-  if (isset($_SESSION['login'])) {
-    if (tambah($_POST) > 0) {
-        echo "
-            <script>
-                alert('Data berhasil ditambah!');
-                document.location.href = 'index.php';
-            </script>
-        ";
-    } else {
-        echo "
-            <script>
-                alert('Data gagal ditambah!');
-                document.location.href = 'pemesanan.php';
-            </script>
-        ";
-    }
-  }else{
-    echo "
-      <script>
-          alert('Anda belum login!');
-          document.location.href = 'pemesanan.php';
-      </script>
-    ";
-  }
-}
 ?>
 
 <!DOCTYPE html>
@@ -247,8 +220,42 @@ if (isset($_POST['submit'])) {
       integrity="sha256-lSjKY0/srUM9BE3dPm+c4fBo1dky2v27Gdjm2uoZaL0="
       crossorigin="anonymous"
     ></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="app/assets/js/index.js"></script>
     <script src="app/assets/js/date.js"></script>
     <!-- js end -->
+
+    <?php
+    if (isset($_POST['submit'])) {
+    if (isset($_SESSION['login'])) {
+    if (tambah($_POST) > 0) {
+        echo "
+            <script>
+                Swal.fire(
+                  'Sukses!',
+                  'Pemesanan anda sukses',
+                  'success'
+                ).then(()=> {
+                    document.location.href = 'index.php'});
+            </script>
+        ";
+    } else {
+        echo "
+            <script>
+                alert('Data gagal ditambah!');
+                document.location.href = 'pemesanan.php';
+            </script>
+        ";
+    }
+  }else{
+    echo "
+      <script>
+          alert('Anda belum login!');
+          document.location.href = 'pemesanan.php';
+      </script>
+    ";
+  }
+}
+?>
   </body>
 </html>

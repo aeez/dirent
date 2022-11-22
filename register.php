@@ -1,24 +1,6 @@
 <?php
 
 include('./config/functions/customer/functionCustomer.php');
-if (isset($_POST['submit'])) {
-
-    if (tambah($_POST) > 0) {
-        echo "
-            <script>
-                alert('Berhasil!');
-                document.location.href = 'index.php';
-            </script>
-        ";
-    } else {
-        echo "
-            <script>
-                alert('Gagal!');
-                document.location.href = 'register.php';
-            </script>
-        ";
-    }
-}
 
 ?>
 
@@ -196,8 +178,37 @@ if (isset($_POST['submit'])) {
     <!-- js start -->
     <script src="app/assets/css/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="app/assets/js/index.js"></script>
     <!-- <script src="app/assets/js/swiper.js"></script> -->
     <!-- js end -->
+
+    <?php
+
+        if (isset($_POST['submit'])) {
+
+        if (tambah($_POST) > 0) {
+            echo "
+                <script>
+                    Swal.fire(
+                      'Sukses!',
+                      'Anda telah berhasil melukakan registerasi',
+                      'success'
+                    ).then(()=> {
+                        document.location.href = 'index.php'});gg
+                </script>
+            ";
+        } else {
+            echo "
+                <script>
+                    alert('Gagal!');
+                    document.location.href = 'register.php';
+                </script>
+            ";
+        }
+    }
+
+    ?>
+
   </body>
 </html>

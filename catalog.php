@@ -81,7 +81,7 @@ $mobil = query("SELECT * FROM mobil");
                     <div class="row">
                       <div class="col-12 col-lg-6"></div>
                       <div class="col-12 col-lg-6 text-end">
-                        <a href="booking.php" class="btn btn-sewa px-4">Sewa Mobil</a>
+                        <a href="pemesanan.php" class="btn btn-sewa px-4">Sewa Mobil</a>
                       </div>
                     </div>
                   </div>
