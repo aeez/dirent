@@ -39,15 +39,15 @@
   font-size: smaller;
 }
 
-#catalog .catalog-card .card-btn a {
-  background-color: #272343;
+#catalog .catalog-card .card-btn button {
+  background-color: #272343 !important;
   color: #fff;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
 }
 
-#catalog .catalog-card .card-btn a:hover {
-  background-color: #ffd803;
+#catalog .catalog-card .card-btn button:hover {
+  background-color: #ffd803 !important;
   color: #272343;
 }
 
