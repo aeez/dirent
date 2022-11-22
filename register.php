@@ -203,10 +203,10 @@ include('./config/functions/customer/functionCustomer.php');
                 <script>
                     Swal.fire({
                     icon: 'error',
-                    title: 'Anda belum Login!',
-                    text: 'Silahkan login terlebih dahulu',
+                    title: 'Oops...',
+                    text: 'Something went wrong!',
                   }).then(()=> {
-                    document.location.href = 'index.php'})
+                    document.location.href = 'register.php'})
                 </script>
             ";
         }
