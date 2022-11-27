@@ -8,14 +8,14 @@ if (isset($_POST['submit'])) {
     if (ubah($_POST) > 0) {
         echo "
             <script>
-                alert('Buku berhasil diubah!');
+                alert('Data berhasil diubah!');
                 document.location.href = 'pemesanan_tbl.php';
             </script>
         ";
     } else {
         echo "
             <script>
-                alert('Buku gagal dipinjam!');
+                alert('Data gagal dipinjam!');
                 document.location.href = 'pemesanan_ubah.php';
             </script>
         ";
