@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 27, 2022 at 01:02 PM
+-- Generation Time: Nov 27, 2022 at 01:10 PM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -140,8 +140,8 @@ CREATE TABLE `pemesanan` (
 --
 
 INSERT INTO `pemesanan` (`id_pemesanan`, `id_customer`, `id_mobil`, `nama`, `alamat`, `no_telp`, `dari_tanggal`, `sampai_tanggal`, `jumlah_hari`, `tujuan`, `link_drive`, `status`, `created_at`, `updated_at`) VALUES
-(6, 6, 4, 'Ahmad Taufiq Ramadhan', 'Jl. Karya Jaya No.55 Medan Johor', '081252253442', '2022-11-30', '2022-12-04', 30, 'Luar Kota (Aceh)', 'google.meet', 'Belum Disetujui', '2022-11-27 11:58:47', '2022-11-27 11:58:47'),
-(7, 5, 9, 'Angga Warjaya', 'Jl.Durung No.5 Kec. Medan Barat', '082273734565', '2022-11-27', '2022-11-28', 1, 'Dalam Kota', '9goal.tv', 'Dipinjam', '0000-00-00 00:00:00', '2022-11-27 12:00:39');
+(6, 6, 4, 'Ahmad Taufiq Ramadhan', 'Jl. Karya Jaya No.55 Medan Johor', '081252253442', '2022-11-30', '2022-12-04', 30, 'Luar Kota (Aceh)', 'https://drive.google.com/file/d/1EEVI2RjUl29faW0g_eOKXPvZyklwqO8x/view?usp=share_link', 'Belum Disetujui', '2022-11-27 11:58:47', '2022-11-27 11:58:47'),
+(7, 5, 9, 'Angga Warjaya', 'Jl.Durung No.5 Kec. Medan Barat', '082273734565', '2022-11-27', '2022-11-28', 1, 'Dalam Kota', 'https://drive.google.com/file/d/1EEVI2RjUl29faW0g_eOKXPvZyklwqO8x/view?usp=share_link', 'Dipinjam', '0000-00-00 00:00:00', '2022-11-27 12:00:39');
 
 -- --------------------------------------------------------
 
