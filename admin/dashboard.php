@@ -90,7 +90,7 @@ $jumlahPeminjam = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM pemesanan W
                       <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><?= $jumlahMobil; ?></div>
                     </div>
                     <div class="col-auto">
-                      <i class="fas fa-book-open fa-2x text-info"></i>
+                      <i class="fa fa-car fa-2x text-info"></i>
                     </div>
                   </div>
                 </div>
@@ -106,7 +106,7 @@ $jumlahPeminjam = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM pemesanan W
                       <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $jumlahPeminjam; ?></div>
                     </div>
                     <div class="col-auto">
-                      <i class="fas fa-tags fa-2x text-warning"></i>
+                      <i class="fa fa-history fa-2x text-warning"></i>
                     </div>
                   </div>
                 </div>

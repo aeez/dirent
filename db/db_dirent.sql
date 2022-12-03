@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 22, 2022 at 12:37 PM
+-- Generation Time: Nov 27, 2022 at 01:10 PM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -130,10 +130,18 @@ CREATE TABLE `pemesanan` (
   `jumlah_hari` int(3) NOT NULL,
   `tujuan` varchar(255) NOT NULL,
   `link_drive` varchar(255) NOT NULL,
-  `status` enum('dipinjam','dikembalikan') NOT NULL,
+  `status` enum('Belum Disetujui','Dipinjam','Dikembalikan') NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `pemesanan`
+--
+
+INSERT INTO `pemesanan` (`id_pemesanan`, `id_customer`, `id_mobil`, `nama`, `alamat`, `no_telp`, `dari_tanggal`, `sampai_tanggal`, `jumlah_hari`, `tujuan`, `link_drive`, `status`, `created_at`, `updated_at`) VALUES
+(6, 6, 4, 'Ahmad Taufiq Ramadhan', 'Jl. Karya Jaya No.55 Medan Johor', '081252253442', '2022-11-30', '2022-12-04', 30, 'Luar Kota (Aceh)', 'https://drive.google.com/file/d/1EEVI2RjUl29faW0g_eOKXPvZyklwqO8x/view?usp=share_link', 'Belum Disetujui', '2022-11-27 11:58:47', '2022-11-27 11:58:47'),
+(7, 5, 9, 'Angga Warjaya', 'Jl.Durung No.5 Kec. Medan Barat', '082273734565', '2022-11-27', '2022-11-28', 1, 'Dalam Kota', 'https://drive.google.com/file/d/1EEVI2RjUl29faW0g_eOKXPvZyklwqO8x/view?usp=share_link', 'Dipinjam', '0000-00-00 00:00:00', '2022-11-27 12:00:39');
 
 -- --------------------------------------------------------
 
@@ -222,7 +230,7 @@ ALTER TABLE `mobil`
 -- AUTO_INCREMENT for table `pemesanan`
 --
 ALTER TABLE `pemesanan`
-  MODIFY `id_pemesanan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_pemesanan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `petugas`
