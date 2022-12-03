@@ -8,7 +8,7 @@ $jumlahHalaman = ceil($jumlahData / $jumlahDataPerhalaman);
 $halamanAktif = (isset($_GET['halaman']) ? $_GET['halaman'] : 1);
 
 $awalData = ($jumlahDataPerhalaman * $halamanAktif) - $jumlahDataPerhalaman;
-$petugas = query("SELECT * FROM mobil Limit $awalData,$jumlahDataPerhalaman");
+$mobil = query("SELECT * FROM mobil Limit $awalData,$jumlahDataPerhalaman");
 
 if (isset($_GET['cari'])) {
     $keyword = $_GET["keyword"];
